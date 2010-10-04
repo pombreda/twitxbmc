@@ -7,6 +7,11 @@
   <string id="30011">Your status cannot be empty.</string> 
   <string id="30012">Your status has been successfully updated.</string> 
   <string id="30013">Your status cannot exceed %(maxLength)s characters.</string> 
+
+  <!-- Message status -->
+  <string id="30050">CLOSE</string> 
+  <string id="30051">REPLY</string> 
+
   
   <!-- Menu -->
   <string id="30100">Update your status</string>
@@ -18,6 +23,7 @@
   <string id="30106">Exit</string>
   <string id="30110">Video post</string>
   <string id="30111">Audio post</string>
+
   <!-- Message OAuth-->
   <string id="40001">twitXBMC failed to authenticate with Twitter.[CR][CR]But not to worry, just approve twitXBMC on the next page and everything will work just fine.[CR]After approving twitXBMC you'll be given a PIN number which you'll need to enter back in twitXBMC.[CR][CR]See you back soon :)</string>
   <string id="40002">The PIN number you entered is incorrect.[CR]please run the script again and give it another try.</string>
