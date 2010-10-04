@@ -1,6 +1,7 @@
 ﻿twitXBMC Changelog
 ** 0.0.4 **
 ADD: setting format string auto-twitting
+ADD: process indicator
 
 ** 0.0.3 **
 FIX: Sign
