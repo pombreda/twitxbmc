@@ -76,6 +76,7 @@ class GUI( xbmcgui.WindowXMLDialog ):
         return img_path
 
     def getTimeline(self):
+        xbmc.executebuiltin( "ActivateWindow(busydialog)" )
         self.getControl( LIST ).reset()
         statuses = self.api.GetFriendsTimeline()
         for s in statuses:
@@ -86,8 +87,10 @@ class GUI( xbmcgui.WindowXMLDialog ):
             self.getControl( LIST ).addItem( listitem )                
         self.setFocus( self.getControl( LIST ) )
         self.getControl( LIST ).selectItem( 0 )
+        xbmc.executebuiltin( "Dialog.Close(busydialog)" )
     
     def getFollowing(self):
+        xbmc.executebuiltin( "ActivateWindow(busydialog)" )
         self.getControl( LIST ).reset()
         users = self.api.GetFriends()
         for u in users:
@@ -104,8 +107,10 @@ class GUI( xbmcgui.WindowXMLDialog ):
 
         self.setFocus( self.getControl( LIST ) )
         self.getControl( LIST ).selectItem( 0 )
+        xbmc.executebuiltin( "Dialog.Close(busydialog)" )
     
     def getFollowers(self):
+        xbmc.executebuiltin( "ActivateWindow(busydialog)" )
         self.getControl( LIST ).reset()
         users = self.api.GetFollowers()
         for u in users:
@@ -122,8 +127,10 @@ class GUI( xbmcgui.WindowXMLDialog ):
 
         self.setFocus( self.getControl( LIST ) )
         self.getControl( LIST ).selectItem( 0 )
+        xbmc.executebuiltin( "Dialog.Close(busydialog)" )
     
     def getDirectMessages(self):
+        xbmc.executebuiltin( "ActivateWindow(busydialog)" )
         self.getControl( LIST ).reset()
         dirmess = self.api.GetDirectMessages()
         for dm in dirmess:
@@ -135,6 +142,7 @@ class GUI( xbmcgui.WindowXMLDialog ):
             self.getControl( LIST ).addItem( listitem )                
         self.setFocus( self.getControl( LIST ) )
         self.getControl( LIST ).selectItem( 0 )
+        xbmc.executebuiltin( "Dialog.Close(busydialog)" )
     
     def tweetWhatImDoing( self ):
         if self.player.isPlayingAudio():
