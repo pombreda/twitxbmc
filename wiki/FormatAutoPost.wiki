@@ -1,16 +1,17 @@
 Music
-%ARTISTNAME%  Artist
-%SONGTITLE%   Title
-%ALBUMTITLE%  Album
+
+||%ARTISTNAME%||Artist||
+||%SONGTITLE%||Title||
+||%ALBUMTITLE%||Album||
 
 TvShow
-%SHOWNAME% TvShowTitle
-%EPISODENAME% Title
-%EPISODENUMBER% Episode
-%EPISODENUMBER_PADDED% Episode with padding            
-%SEASON% Season
-%SEASON_PADDED% Season with padding
+||%SHOWNAME%||TvShowTitle||
+||%EPISODENAME%||Title||
+||%EPISODENUMBER%||Episode||
+||%EPISODENUMBER_PADDED%||Episode with padding||
+||%SEASON%||Season||
+||%SEASON_PADDED%||Season with padding||
 
 Movie
-%MOVIETITLE% Title
-%MOVIEYEAR% Year
+||%MOVIETITLE%||Title||
+||%MOVIEYEAR%||Year||
