@@ -1,5 +1,6 @@
 ﻿import sys
 import os
+import time
 import xbmc
 import xbmcgui
 import xbmcaddon
@@ -84,6 +85,11 @@ class GUI( xbmcgui.WindowXMLDialog ):
             listitem = xbmcgui.ListItem(label=s.user.name.encode('utf-8'),\
                                         label2=s.text.encode('utf-8'),\
                                         thumbnailImage=img_url)
+            created = time.localtime( s.GetCreatedAtInSeconds() )
+            timestamp = time.strftime( '%Y-%m-%d %H:%M', created )
+            listitem.setProperty( "created_at", timestamp )
+            listitem.setProperty( "source", s.source )
+            #listitem.setProperty( "updated", "Received on %s (UTC)" % atom.entries[i].updated.replace("T", " At ").replace("Z","") )
             self.getControl( LIST ).addItem( listitem )                
         self.setFocus( self.getControl( LIST ) )
         self.getControl( LIST ).selectItem( 0 )
@@ -150,41 +156,44 @@ class GUI( xbmcgui.WindowXMLDialog ):
         elif self.player.isPlayingVideo():
             return self.tweetWhatImWatching()
         else:
+            dialog = xbmcgui.Dialog()
+            dialog.ok(  "Success" , "No playing"  )
             return False
             
     def tweetWhatImListeningTo( self ):
         try:
-            title = __settings__.getSetting('MusicTweet').encode("utf-8",'ignore')
-            title = title.replace('%ARTISTNAME%', xbmc.getInfoLabel("MusicPlayer.Artist").decode('utf-8'))
-            title = title.replace('%SONGTITLE%', xbmc.getInfoLabel("MusicPlayer.Title").decode('utf-8'))
-            title = title.replace('%ALBUMTITLE%', xbmc.getInfoLabel("MusicPlayer.Album").decode('utf-8'))
-        except:
+            title = __settings__.getSetting('MusicTweet')
+            title = title.replace('%ARTISTNAME%', xbmc.getInfoLabel("MusicPlayer.Artist"))
+            title = title.replace('%SONGTITLE%', xbmc.getInfoLabel("MusicPlayer.Title"))
+            title = title.replace('%ALBUMTITLE%', xbmc.getInfoLabel("MusicPlayer.Album"))
+            message = appendFooterToStatus( title, twitter.CHARACTER_LIMIT, __settings__.getSetting('TagsTweet') )
+            return self.tweet( message)    
+        except Exception, ex:
+            Debug('Error tweetWhatImListeningTo - '+str(ex),True)
             return False
-        message = appendFooterToStatus( title, twitter.CHARACTER_LIMIT, __settings__.getSetting('TagsTweet') )
-        return self.tweet( message )
+        
 
     def tweetWhatImWatching( self ):
         try:
-            video = self.player.getVideoInfoTag()
-        except:
+            if len(xbmc.getInfoLabel("VideoPlayer.TVshowtitle")) >= 1: # TvShow
+                title = __settings__.getSetting('TVShowTweet')   
+                title = title.replace('%SHOWNAME%', xbmc.getInfoLabel("VideoPlayer.TvShowTitle"))
+                title = title.replace('%EPISODENAME%', xbmc.getInfoLabel("VideoPlayer.Title"))
+                title = title.replace('%EPISODENUMBER%', xbmc.getInfoLabel("VideoPlayer.Episode"))
+                title = title.replace('%EPISODENUMBER_PADDED%', addPadding(xbmc.getInfoLabel("VideoPlayer.Episode")))            
+                title = title.replace('%SEASON%', xbmc.getInfoLabel("VideoPlayer.Season"))
+                title = title.replace('%SEASON_PADDED%', addPadding(xbmc.getInfoLabel("VideoPlayer.Season")))            
+                message = appendFooterToStatus( title, twitter.CHARACTER_LIMIT, __settings__.getSetting('TagsTweet') )
+                return self.tweet( message )
+            elif len(xbmc.getInfoLabel("VideoPlayer.Title")) >= 1: #Movie
+                info = __settings__.getSetting('MovieTweet')    
+                info = info.replace('%MOVIETITLE%', xbmc.getInfoLabel("VideoPlayer.Title"))
+                info = info.replace('%MOVIEYEAR%', xbmc.getInfoLabel("VideoPlayer.Year"))
+                message = appendFooterToStatus( info, twitter.CHARACTER_LIMIT, __settings__.getSetting('TagsTweet') )
+                return self.tweet( message )
+        except Exception, ex:
+            Debug('Error tweetWhatImWatching - '+str(ex),True)
             return False
-            
-        if len(xbmc.getInfoLabel("VideoPlayer.TVshowtitle")) >= 1: # TvShow
-            title = __settings__.getSetting('TVShowTweet').encode("utf-8",'ignore')    
-            title = title.replace('%SHOWNAME%', xbmc.getInfoLabel("VideoPlayer.TvShowTitle").decode('utf-8'))
-            title = title.replace('%EPISODENAME%', xbmc.getInfoLabel("VideoPlayer.Title").decode('utf-8'))
-            title = title.replace('%EPISODENUMBER%', xbmc.getInfoLabel("VideoPlayer.Episode").decode('utf-8'))
-            title = title.replace('%EPISODENUMBER_PADDED%', addPadding(xbmc.getInfoLabel("VideoPlayer.Episode")).decode('utf-8'))            
-            title = title.replace('%SEASON%', xbmc.getInfoLabel("VideoPlayer.Season").decode('utf-8'))
-            title = title.replace('%SEASON_PADDED%', addPadding(xbmc.getInfoLabel("VideoPlayer.Season")).decode('utf-8'))            
-            message = appendFooterToStatus( title, twitter.CHARACTER_LIMIT, __settings__.getSetting('TagsTweet') )
-            return self.tweet( message.encode('utf-8') )
-        elif len(xbmc.getInfoLabel("VideoPlayer.Title")) >= 1: #Movie
-            info = __settings__.getSetting('MovieTweet').encode("utf-8",'ignore')    
-            info = info.replace('%MOVIETITLE%', xbmc.getInfoLabel("VideoPlayer.Title").decode('utf-8'))
-            info = info.replace('%MOVIEYEAR%', xbmc.getInfoLabel("VideoPlayer.Year").decode('utf-8'))
-            message = appendFooterToStatus( info, twitter.CHARACTER_LIMIT, __settings__.getSetting('TagsTweet') )
-            return self.tweet( message.encode('utf-8') )
     
     def onClick( self, controlId ):
         if controlId == 100 : 
@@ -210,7 +219,7 @@ class GUI( xbmcgui.WindowXMLDialog ):
             import notification
             import datetime
             ui = notification.GUI( "Notification.xml" , BASE_PATH, "Default")
-            ui.setTwitterText (item.getLabel2().encode( "utf-8", "ignore" ), "mention", item.getLabel().encode( "utf-8", "ignore" ), '', datetime.datetime.now(), '')
+            ui.setTwitterText (item.getLabel2(), "mention", item.getLabel(), '', datetime.datetime.now(), '')
             ui.doModal()
             del ui
         

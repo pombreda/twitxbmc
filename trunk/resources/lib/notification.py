@@ -60,12 +60,12 @@ class GUI( xbmcgui.WindowXMLDialog ):
             i = 0
             while (i < self.maxcount) and (not terminate):
                 i = i+1
-                self.ui.getControl( CONTROL_CLOSE_BUTTON ).setLabel(__language__(30052) + '(' +str( self.maxcount-i ) + ')')
+                self.ui.getControl( CONTROL_CLOSE_BUTTON ).setLabel(__language__(30050) + '(' +str( self.maxcount-i ) + ')')
                 time.sleep(1)
                 if (i == self.maxcount):
                     self.ui.exit_script()
                 if (stoptimer):
-                    self.ui.getControl( CONTROL_CLOSE_BUTTON ).setLabel(__language__(30052))
+                    self.ui.getControl( CONTROL_CLOSE_BUTTON ).setLabel(__language__(30050))
                     break
                 
     global terminate
@@ -94,7 +94,7 @@ class GUI( xbmcgui.WindowXMLDialog ):
         global tweetsourceimage
         global tweetfromstring
         
-        self.getControl( CONTROL_REPLY_BUTTON ).setLabel( __language__(30053) )
+        self.getControl( CONTROL_REPLY_BUTTON ).setLabel( __language__(30051) )
         self.getControl( CONTROL_TWITTER_FROM ).setLabel( tweetfromstring )
         self.getControl( CONTROL_TWITTER_TEXT ).setLabel( twittertext )        
         self.getControl( CONTROL_TWITTER_IMAGE ).setImage ( tweetsourceimage )
