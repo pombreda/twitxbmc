@@ -1,0 +1,13 @@
+﻿twitXBMC Changelog
+** 0.0.4 **
+ADD: setting format string auto-twitting
+
+** 0.0.3 **
+FIX: Sign
+ADD: Count followers, following
+
+** 0.0.2 **
+ADD: Audio, video information posting
+
+** 0.0.1 **
+Initial Release
