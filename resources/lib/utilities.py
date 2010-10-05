@@ -4,8 +4,8 @@ import xbmc
 import string
 import xbmcaddon
 
-__svn_url__ = "http://xbmc-addons.googlecode.com/svn/trunk/scripts/xbTweet/"
-__version__ = "1.0.0"
+__svn_url__ = ""
+__version__ = "0.0.7"
 
 #Path handling
 LANGUAGE_RESOURCE_PATH = xbmc.translatePath( os.path.join( os.getcwd(), 'resources', 'language' ) )
@@ -14,7 +14,7 @@ AUTOEXEC_PATH = xbmc.translatePath( 'special://home/scripts/autoexec.py' )
 VERSION_PATH = xbmc.translatePath( os.path.join( os.getcwd(), 'resources', 'version.cfg' ) )
 
 #Consts
-AUTOEXEC_SCRIPT = '\nimport time;time.sleep(5);xbmc.executebuiltin("XBMC.RunScript(special://home/scripts/xbTweet/default.py,-startup)")\n'
+AUTOEXEC_SCRIPT = '\nimport time;time.sleep(5);xbmc.executebuiltin("XBMC.RunScript(special://home/scripts/twitXBMC/default.py,-startup)")\n'
 
 __settings__ = xbmcaddon.Addon(id='script.twitXBMC')
 __language__ = __settings__.getLocalizedString

@@ -11,6 +11,7 @@
   <!-- Message status -->
   <string id="30050">CLOSE</string> 
   <string id="30051">REPLY</string> 
+  <string id="30052">Don't show this screen again</string>
 
   
   <!-- Menu -->

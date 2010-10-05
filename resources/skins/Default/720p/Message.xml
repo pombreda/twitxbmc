@@ -108,7 +108,7 @@
                 <height>30</height>
                 <align>left</align>
                 <aligny>center</aligny>
-                <label>$LOCALIZE[30051]</label>
+                <label>$LOCALIZE[30052]</label>
                 <font>font13</font>
                 <textcolor>white</textcolor>
                 <texturefocus>amt-input-focus.png</texturefocus>
@@ -128,7 +128,7 @@
 				  <height>40</height>
 				  <visible>true</visible>
 				  <colordiffuse>FFFFFFFF</colordiffuse>
-				  <label>$LOCALIZE[30052]</label>
+				  <label>$LOCALIZE[30050]</label>
 				  <font>font18</font>
 				  <textcolor>white</textcolor>
 				  <disabledcolor>80FFFFFF</disabledcolor>
