@@ -4,7 +4,7 @@ import time
 import threading
 import os
 import xbmcaddon
-__settings__ = xbmcaddon.Addon(id='script.xbtweet')
+__settings__ = xbmcaddon.Addon(id='script.twitXBMC')
 __language__ = __settings__.getLocalizedString
 
 EXIT_SCRIPT = ( 6, 10, 247, 275, 61467, 216, 257, 61448, )
@@ -37,7 +37,7 @@ class GUI( xbmcgui.WindowXMLDialog ):
         pass
 
     def onInit( self ):
-        self.getControl( CONTROL_CLOSE_BUTTON ).setLabel( __language__(30052) )
+        self.getControl( CONTROL_CLOSE_BUTTON ).setLabel( __language__(30050) )
         
         self.getControl( CONTROL_HEADER_TEXT ).setLabel( self.headertext )
         self.getControl( CONTROL_MESSAGE_TEXT ).setText( self.message )

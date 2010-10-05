@@ -4,7 +4,7 @@ import xbmc
 import xbmcgui
 import xbmcaddon
 import string
-import webbrowser
+import openbrowser
 import time
 import ConfigParser
 import string
@@ -12,6 +12,7 @@ import urllib2
 
 from python_twitter import *
 from utilities import *
+
 
 __settings__ = xbmcaddon.Addon(id='script.twitXBMC')
 __language__ = __settings__.getLocalizedString
@@ -40,7 +41,7 @@ def Twitter_Login(bWhichAccount = False):
                 request_token = api.getRequestToken()
                 redirect_url = api.getAuthorizationURL(request_token)
                 Debug( 'request url - '+redirect_url, True)
-                webbrowser.open(redirect_url)
+                openbrowser.open(redirect_url)
                 keyboard = xbmc.Keyboard('',__language__(30000))
                 keyboard.doModal()
                 if (keyboard.isConfirmed()):

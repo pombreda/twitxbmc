@@ -214,14 +214,14 @@ class GUI( xbmcgui.WindowXMLDialog ):
         if controlId == 111 : #Auto post
             self.tweetWhatImDoing()
         
-        if controlId == 2000 : 
-            item = self.getControl( LIST ).getSelectedItem()
-            import notification
-            import datetime
-            ui = notification.GUI( "Notification.xml" , BASE_PATH, "Default")
-            ui.setTwitterText (item.getLabel2(), "mention", item.getLabel(), '', datetime.datetime.now(), '')
-            ui.doModal()
-            del ui
+        # if controlId == 2000 : 
+            # item = self.getControl( LIST ).getSelectedItem()
+            # import notification
+            # import datetime
+            # ui = notification.GUI( "Notification.xml" , BASE_PATH, "Default")
+            # ui.setTwitterText (item.getLabel2(), "mention", item.getLabel(), '', datetime.datetime.now(), '')
+            # ui.doModal()
+            # del ui
         
         pass	
 

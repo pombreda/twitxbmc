@@ -1,4 +1,8 @@
 ﻿twitXBMC Changelog
+** 0.0.6 **
+FIX: [LINUX] automatically open web page in the browser by default
+FIX: buttons without labels
+
 ** 0.0.5 **
 FIX: автопостинг с кирилицей
 ADD: view datetime posting status
