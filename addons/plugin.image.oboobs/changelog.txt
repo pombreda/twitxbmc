@@ -1,0 +1,24 @@
+OBoobs.ru Changelog
+
+** 0.0.6 **
+ADD: view message new rating
+ADD: Russian language
+
+** 0.0.5 **
+ADD: view rating
+ADD: rank +/- (context menu)
+
+** 0.0.4 **
+ADD: noise view
+
+** 0.0.3 **
+ADD: save pictures (context menu)
+
+** 0.0.2 **
+ADD: image for next page
+FIX: full image view
+
+** 0.0.1 ***
+
+Initial Release
+View list Latest, Best, Debatable

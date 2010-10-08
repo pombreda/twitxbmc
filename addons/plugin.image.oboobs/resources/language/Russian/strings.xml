@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>
+  <!-- Main -->
+  <string id="30001">Oboobs.ru</string>
+  <!-- Settings labels -->
+  <string id="30100">Версия</string>
+  <string id="30101">Автор</string>
+  <string id="30102">Путь для сохранения</string>
+  <!-- Context menu -->
+  <string id="30201">Сохранить рисунок</string>
+  <string id="30202">+ рейтинг</string>
+  <string id="30203">- рейтинг</string>
+  <!-- Texts pages-->
+  <string id="30401">Следующая</string>
+  <string id="30402">страница %u</string>
+  <!-- Texts menu -->
+  <string id="30411">Последние</string>
+  <string id="30412">Лучшие</string>
+  <string id="30413">Обсуждаемые</string>
+  <string id="30414">Шум</string>
+  
+  <string id="30017">Выберите папку для сохраниения:</string> 
+  <string id="30050">Сохранение рисунка...</string> 
+  <string id="30051">Ждите.</string> 
+  <!-- Notification -->
+  <string id="30301">Новый рейтинг</string> 
+
+</strings>

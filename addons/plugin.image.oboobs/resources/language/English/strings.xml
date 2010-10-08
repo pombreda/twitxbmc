@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>
+  <!-- Main -->
+  <string id="30001">Oboobs.ru</string>
+  <!-- Settings labels -->
+  <string id="30100">Version</string>
+  <string id="30101">Author</string>
+  <string id="30102">Path saving</string>
+  <!-- Context menu -->
+  <string id="30201">Save picture</string>
+  <string id="30202">+ rank</string>
+  <string id="30203">- rank</string>
+  <!-- Texts pages-->
+  <string id="30401">Next page</string>
+  <string id="30402">page %u</string>
+  <!-- Texts menu -->
+  <string id="30411">Latest</string>
+  <string id="30412">Best</string>
+  <string id="30413">Debatable</string>
+  <string id="30414">Noise</string>
+  
+  <string id="30017">Select download path:</string> 
+  <string id="30050">Downloading picture...</string> 
+  <string id="30051">Please wait.</string> 
+  <!-- Notification -->
+  <string id="30301">New rating for</string> 
+  
+
+</strings>
