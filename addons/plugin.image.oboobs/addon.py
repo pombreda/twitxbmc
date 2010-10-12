@@ -50,34 +50,23 @@ def showRoot(localpath, handle):
 def showList(localpath, handle, name, url, page):
     pageUrl = url%(str(int(page)))
     showListCommon(localpath, handle, pageUrl)
-    #
     # Next page entry...
-    #
     listitem = xbmcgui.ListItem (__language__(30401), iconImage = "DefaultFolder.png", thumbnailImage = os.path.join(imgDir, 'next-page.png'))
     next_page_url = localpath+"?mode=1&name="+__language__(30401)+"&url="+urllib.quote_plus(url)+"&page="+str(int(page)+1)
     xbmcplugin.addDirectoryItem( handle = int(sys.argv[1]), url = next_page_url, listitem = listitem, isFolder = True)
-    #
     # Label (top-right)...
-    #
     xbmcplugin.setPluginCategory( handle, category=( "%s (%s)" % ( name, ( __language__(30402) % page ) ) ) )
-    #
     # End of directory...
-    #
     xbmcplugin.endOfDirectory(handle)
     
 def showNoise(localpath, handle, name, url, page):
     pageUrl = "http://oboobs.ru/a/%s"%(str(int(page)))
     showNoiseCommon(localpath, handle, pageUrl)
-    
-    #
     # Again entry...
-    #
     listitem = xbmcgui.ListItem (__language__(30401), iconImage = "DefaultFolder.png", thumbnailImage = os.path.join(imgDir, 'next-page.png'))
     next_page_url = localpath+"?mode=2&name="+__language__(30401)+"&url="+urllib.quote_plus(url)+"&page="+str(int(page)+1)
     xbmcplugin.addDirectoryItem( handle = int(sys.argv[1]), url = next_page_url, listitem = listitem, isFolder = True)
-    #
     # End of directory...
-    #
     xbmcplugin.endOfDirectory(handle)
 
 def showListCommon(localpath, handle, pageUrl):
