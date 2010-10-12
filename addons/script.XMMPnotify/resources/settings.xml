@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<settings>
-  <setting id="Login" type="text" label="Login" default="" />
-  <setting id="Password" type="text" option="hidden" label="Password" default=""  />
-  <setting id="Resource" type="text" label="Resource" default="XBMC" />
-  <setting id="Priority" type="number" label="Priority" default="10"/> 
-</settings>
