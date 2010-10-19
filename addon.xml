@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="script.twitXBMC"
        name="twitXBMC"
-       version="0.0.6"
+       version="0.0.7"
        provider-name="Eraser">
   <requires>
     <import addon="xbmc.python" version="1.0"/>
+	<import addon="script.module.simplejson" version="2.0.9" /> 
   </requires>
-  <extension point="xbmc.python.script"
-             library="default.py" />
+  <extension point="xbmc.python.script" library="default.py">
+   <provides>executable</provides> 
+  </extension>
   <extension point="xbmc.addon.metadata">
     <summary lang="en">Twitter client</summary>
     <description lang="en">Twitter client - send status, view friends timeline</description>

@@ -1,42 +1,36 @@
 #!/usr/bin/env python
 # 
-# Copyright under  the latest Apache License 2.0
-
-'''A class the inherits everything from python-twitter and allows oauth based access
-
+'''
 Requires:
-  python-twitter
   simplejson
   oauth
 '''
 
-__author__ = "Hameedullah Khan <hameed@hameedkhan.net>"
-__version__ = "0.2"
+__author__ = "Eraser"
+__version__ = "0.1"
 
+import urllib
+import urllib2
+import simplejson
+import oauth2 as oauth
 
-from twitter import Api, User
-
-import simplejson, oauth
-
-
-
-# Taken from oauth implementation at: http://github.com/harperreed/twitteroauth-python/tree/master
-REQUEST_TOKEN_URL = 'http://twitter.com/oauth/request_token'
-ACCESS_TOKEN_URL = 'http://twitter.com/oauth/access_token'
-AUTHORIZATION_URL = 'http://twitter.com/oauth/authorize'
-SIGNIN_URL = 'http://twitter.com/oauth/authenticate'
-
-
-class OAuthApi(Api):
-    def __init__(self, consumer_key, consumer_secret, access_token=None):
-        if access_token:
-            Api.__init__(self,access_token.key, access_token.secret)
+class OAuthApi(object):
+    
+    def __init__(self, consumer_key, consumer_secret, access_token=None, base_url=None):
+        self._urllib         = urllib2
+        if base_url is None:
+            self.REQUEST_TOKEN_URL = 'https://twitter.com/oauth/request_token'
+            self.ACCESS_TOKEN_URL = 'https://twitter.com/oauth/access_token'
+            self.AUTHORIZATION_URL = 'https://twitter.com/oauth/authorize'
+            self.SIGNIN_URL = 'https://twitter.com/oauth/authenticate'
         else:
-            Api.__init__(self)
-        self._Consumer = oauth.OAuthConsumer(consumer_key, consumer_secret)
-        self._signature_method = oauth.OAuthSignatureMethod_HMAC_SHA1()
+            self.REQUEST_TOKEN_URL = '%s/oauth/request_token'%(base_url)
+            self.ACCESS_TOKEN_URL = '%s/oauth/access_token'%(base_url)
+            self.AUTHORIZATION_URL = '%s/oauth/authorize'%(base_url)
+            self.SIGNIN_URL = '%s/oauth/authenticate'%(base_url)
+        self._Consumer = oauth.Consumer(consumer_key, consumer_secret)
+        self._signature_method = oauth.SignatureMethod_HMAC_SHA1()
         self._access_token = access_token
-
 
     def _GetOpener(self):
         opener = self._urllib.build_opener()
@@ -63,8 +57,6 @@ class OAuthApi(Api):
         '''
         # Build the extra parameters dict
         extra_params = {}
-        if self._default_params:
-          extra_params.update(self._default_params)
         if parameters:
           extra_params.update(parameters)
     
@@ -139,13 +131,13 @@ class OAuthApi(Api):
         '''
         if not token:
             token = self._access_token
-        request = oauth.OAuthRequest.from_consumer_and_token(
+        request = oauth.Request.from_consumer_and_token(
                             self._Consumer, token=token, 
                             http_url=url, parameters=parameters, 
                             http_method=http_method)
         return request
 
-    def _signRequest(self, req, signature_method=oauth.OAuthSignatureMethod_HMAC_SHA1()):
+    def _signRequest(self, req, signature_method=oauth.SignatureMethod_HMAC_SHA1()):
         '''Sign a request
         
         Reminder: Created this function so incase
@@ -159,49 +151,46 @@ class OAuthApi(Api):
         req.sign_request(signature_method, self._Consumer, self._access_token)
     
 
-    def getAuthorizationURL(self, token, url=AUTHORIZATION_URL):
+    def getAuthorizationURL(self, token, url=None):
         '''Create a signed authorization URL
         
         Returns:
           A signed OAuthRequest authorization URL 
         '''
+        if url is None:
+            url = self.AUTHORIZATION_URL
         req = self._makeOAuthRequest(url, token=token)
         self._signRequest(req)
         return req.to_url()
 
-    def getSigninURL(self, token, url=SIGNIN_URL):
+    def getSigninURL(self, token, url=None):
         '''Create a signed Sign-in URL
         
         Returns:
           A signed OAuthRequest Sign-in URL 
         '''
-        
+        if url is None:
+            url = self.SIGNIN_URL
         signin_url = self.getAuthorizationURL(token, url)
         return signin_url
     
-    def getAccessToken(self, pin, url=ACCESS_TOKEN_URL):
+    def getAccessToken(self, pin, url=None):
+        if url is None:
+            url = self.ACCESS_TOKEN_URL
         token = self._FetchUrl(url, parameters={'oauth_verifier': pin},
                                no_cache=True)
-        return oauth.OAuthToken.from_string(token) 
+        return oauth.Token.from_string(token) 
 
-    def getRequestToken(self, url=REQUEST_TOKEN_URL):
+    def getRequestToken(self, url=None):
         '''Get a Request Token from Twitter
         
         Returns:
           A OAuthToken object containing a request token
         '''
+        if url is None:
+            url = self.REQUEST_TOKEN_URL
         resp = self._FetchUrl(url, no_cache=True)
-        token = oauth.OAuthToken.from_string(resp)
+        token = oauth.Token.from_string(resp)
         return token
     
-    def GetUserInfo(self, url='http://twitter.com/account/verify_credentials.json'):
-        '''Get user information from twitter
-        
-        Returns:
-          Returns the twitter.User object
-        '''
-        json = self._FetchUrl(url)
-        data = simplejson.loads(json)
-        self._CheckForTwitterError(data)
-        return User.NewFromJsonDict(data)
-        
+ 
