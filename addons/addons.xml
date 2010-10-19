@@ -20,6 +20,7 @@
        provider-name="Eraser">
   <requires>
     <import addon="xbmc.python" version="1.0"/>
+	<import addon="script.module.simplejson" version="2.0.9" />
   </requires>
   <extension point="xbmc.python.script" library="default.py">
    <provides>executable</provides>
@@ -53,17 +54,18 @@
 
 <addon id="script.XMPPnotify"
        name="XMPP notify"
-       version="0.0.1"
+       version="0.0.2"
        provider-name="Eraser">
   <requires>
     <import addon="xbmc.python" version="1.0"/>
+	<import addon="script.module.pysqlite" version="2.5.6" />
   </requires>
  <extension point="xbmc.python.script" library="default.py">
   <provides>executable</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">XMPPnotify</summary>
-    <description lang="en">XMPPnotify</description>
+    <summary lang="en">XMPP notify</summary>
+    <description lang="en">XMPP notify</description>
     <platform>all</platform>
   </extension>
 </addon>

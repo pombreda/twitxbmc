@@ -18,22 +18,28 @@
 #Standard modules
 import os
 import sys
+import datetime
 #Third-party modules
 import xbmcaddon
+from pysqlite2 import dbapi2 as sqlite3
 #Project modules
 
 
-
-__settings__ = xbmcaddon.Addon(id='script.XMPPnotify')
+__scriptID__      = "script.XMPPnotify"
+__settings__ = xbmcaddon.Addon(id=__scriptID__)
 __language__ = __settings__.getLocalizedString
 ###Path handling
 rootDir = os.getcwd()
 if rootDir[-1] == ';':rootDir = rootDir[0:-1]
 resDir = os.path.join(rootDir, 'resources')
 libDir = os.path.join(resDir, 'lib')
+sys.path.append (libDir)
 skinsDir = os.path.join(resDir, 'skins')
 
-sys.path.append (libDir)
+addon_work_folder = os.path.join(xbmc.translatePath( "special://profile/addon_data/" ), __scriptID__)
+addon_db = os.path.join(addon_work_folder, "xmpp.db")
+
+
 
 from utilities import *
 
@@ -47,7 +53,24 @@ smallicon = xbmc.translatePath( os.path.join( skinsDir, 'Default', 'media', 'sma
 xbmc.executebuiltin('Notification(XMPP notify,Load addon...,3000,' + smallicon + ')')
 
 ######################################################################
+#create the addon's database
+def database_setup():
+        print "#  Setting Up Database"
+        print "#    addon_work_path: %s" % addon_work_folder
+        if not os.path.exists(addon_work_folder):
+            print "#  Settings not set, aborting database creation"
+            return -1
+        if  os.path.exists(addon_db):
+            print "#  Database find"
+            return 0
+        conn = sqlite3.connect(addon_db)
+        c = conn.cursor()
+        c.execute('''CREATE TABLE messages(dt TIMESTAMP, jid, message)''')
+        conn.commit()
+        c.close()
+        return 1
 
+######################################################################
 def start():
     global bot
     global LOGGEDIN
@@ -84,9 +107,13 @@ def start():
     presence = xmpp.Presence(status = "", show = "online", priority = __settings__.getSetting( "priority"))
     bot.send(presence)
     
+    smallicon = xbmc.translatePath( os.path.join( skinsDir, 'Default', 'media', 'smallxmpp.png' ) )
+    xbmc.executebuiltin('Notification(XMPP notify,Connected ...,3000,' + smallicon + ')')
+    
     LOGGEDIN = 1
 
     while 1:
+        
         bot.Process(10)
 
 def message_callback(conn,mess):
@@ -99,6 +126,17 @@ def message_callback(conn,mess):
         #print text
         if ( text == None ):
             return
+            
+        command = "insert into messages(dt, jid, message) values('%s','%s','%s')" %(datetime.datetime.now(),str(user),text)
+        con = sqlite3.connect(addon_db)
+        c=con.cursor() 
+        try: 
+            c.execute(command) 
+            con.commit()
+        except sqlite3.OperationalError,e: 
+            print(str(e)) 
+        con.close()
+
         smallicon = xbmc.translatePath( os.path.join( skinsDir, 'Default', 'media', 'smallxmpp.png' ) )
         xbmc.executebuiltin('Notification('+user.encode('utf-8','ignore')+',' + text.encode('utf-8','ignore') + ',5000,' + smallicon + ')')
 
@@ -110,7 +148,7 @@ def message_callback(conn,mess):
 
 if __name__ == "__main__":
     try:	
-        #config = loadConfig()
+        database_setup()
         start()
     except KeyboardInterrupt:
         print 'INTERRUPT'

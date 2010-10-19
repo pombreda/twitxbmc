@@ -1,4 +1,14 @@
 ﻿Changelog
 
+** 0.0.2 **
+ADD: message save sqlite base
+
 ** 0.0.1 **
 Initial Release
+
+
+todo
+auto status (watch, listen)
+commands control for XBMC
+change baloon style
+
