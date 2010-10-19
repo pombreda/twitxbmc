@@ -32,7 +32,51 @@
         </control>
              
 
-
+		<control type="image">
+			<posx>20</posx>
+			<posy>440</posy>
+			<width>235</width>
+			<height>2</height>
+			<texture>separator.png</texture>
+		</control>
+		<control type="image" id="222">
+            <posx>20</posx>
+            <posy>450</posy>
+            <width>40</width>
+            <height>40</height>
+        </control>
+		<control type="label" id="223">
+            <posx>70</posx>
+            <posy>450</posy>
+            <width>200</width>
+            <height>20</height>
+            <font>font10</font>
+            <aligny>center</aligny>
+            <textcolor>white</textcolor>
+            <align>left</align>
+        </control>
+		<control type="label" id="224">
+			<posx>70</posx>
+			<posy>470</posy>
+			<width>200</width>
+			<height>20</height>
+			<font>font10</font>
+			<aligny>center</aligny>
+			<textcolor>white</textcolor>
+			<align>left</align>
+		</control>
+		<control type="label" id="225">
+			<posx>20</posx>
+			<posy>480</posy>
+			<width>230</width>
+			<height>60</height>
+			<font>font10</font>
+			<aligny>center</aligny>
+			<textcolor>white</textcolor>
+			<align>left</align>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+      
       
       
       <control type="image">
