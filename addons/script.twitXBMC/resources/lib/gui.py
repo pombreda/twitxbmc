@@ -22,13 +22,16 @@ cacheDir = xbmc.translatePath('special://profile/addon_data/script.twitXBMC/cach
 if not os.path.exists(cacheDir): os.makedirs(cacheDir)
 
 
-STATUS_LABEL = 100
+STATUS_LABEL = 133
 LIST = 2000
+
 
 BASE_PATH = xbmc.translatePath( os.getcwd() )
 
 KEY_BUTTON_BACK = 275
 KEY_KEYBOARD_ESC = 61467
+
+ACTION_CONTEXT_MENU   = 117
 
 CONSUMER_KEY = "TmSvaQBT6UEZ0k5bu2GN2w"
 CONSUMER_SECRET = "bW2G8PRYzyHMxaxw7qGzjdO6fw0caOJcBT5jrhwWg"
@@ -46,7 +49,8 @@ class GUI( xbmcgui.WindowXMLDialog ):
 
 
     def onInit( self ):
-        self.pageTimeline = 0;
+        self.pageTimeline = 1;
+        self.userTimeline = None
         self.player = xbmc.Player()
         audioIsPlaying = self.player.isPlayingAudio()
         videoIsPlaying = self.player.isPlayingVideo()
@@ -80,7 +84,7 @@ class GUI( xbmcgui.WindowXMLDialog ):
         self.getControl( 224 ).setLabel(user.location.encode('utf-8'))
         self.getControl( 225 ).setLabel(user.status.text.encode('utf-8'))
         
-        
+        self.getControl( STATUS_LABEL ).setLabel(__language__(30101))
         self.getTimeline()
         pass
     
@@ -96,10 +100,13 @@ class GUI( xbmcgui.WindowXMLDialog ):
 
     def getTimeline(self):
         xbmc.executebuiltin( "ActivateWindow(busydialog)" )
-        if (self.pageTimeline==0):
+        if (self.pageTimeline==1):
             self.getControl( LIST ).reset()
         pos = self.getControl( LIST ).getSelectedPosition()
-        statuses = self.api.GetFriendsTimeline(page=self.pageTimeline)
+        if (self.userTimeline is None): 
+            statuses = self.api.GetFriendsTimeline(page=self.pageTimeline)
+        else:
+            statuses = self.api.GetUserTimeline(id = self.userTimeline,page=self.pageTimeline)
         for s in statuses:
             img_url = self.image_cache(s.user.id,s.user.profile_image_url)
             listitem = xbmcgui.ListItem(label=s.user.name.encode('utf-8'),\
@@ -109,6 +116,7 @@ class GUI( xbmcgui.WindowXMLDialog ):
             timestamp = time.strftime( '%Y-%m-%d %H:%M', created )
             listitem.setProperty( "created_at", timestamp )
             listitem.setProperty( "source", s.source )
+            listitem.setProperty( "id", str(s.user.id) )
             self.getControl( LIST ).addItem( listitem )                
         self.setFocus( self.getControl( LIST ) )
         self.getControl( LIST ).selectItem(pos)
@@ -118,7 +126,7 @@ class GUI( xbmcgui.WindowXMLDialog ):
     def getFollowing(self):
         xbmc.executebuiltin( "ActivateWindow(busydialog)" )
         self.getControl( LIST ).reset()
-        users = self.api.GetFriends()
+        users = self.api.GetFriends(user=self.userTimeline)
         for u in users:
             img_url = self.image_cache(u.id,u.profile_image_url)
             s=u.status
@@ -128,6 +136,7 @@ class GUI( xbmcgui.WindowXMLDialog ):
             listitem = xbmcgui.ListItem(label=u.name.encode('utf-8'),\
                                         label2=text,\
                                         thumbnailImage=img_url)
+            listitem.setProperty( "id", str(u.id) )
             self.getControl( LIST ).addItem( listitem )                
 
         self.setFocus( self.getControl( LIST ) )
@@ -147,6 +156,7 @@ class GUI( xbmcgui.WindowXMLDialog ):
             listitem = xbmcgui.ListItem(label=u.name.encode('utf-8'),\
                                         label2=text,\
                                         thumbnailImage=img_url)
+            listitem.setProperty( "id", str(u.id) )
             self.getControl( LIST ).addItem( listitem )                
 
         self.setFocus( self.getControl( LIST ) )
@@ -216,14 +226,25 @@ class GUI( xbmcgui.WindowXMLDialog ):
     def onClick( self, controlId ):
         if controlId == 100 : 
            self.tweetManually()
-        if controlId == 101 : 
-           self.getTimeline()
+        if controlId == 101 :
+            self.pageTimeline = 1;
+            self.userTimeline = None;
+            self.getControl( STATUS_LABEL ).setLabel(__language__(30101))
+            self.getTimeline()
         if controlId == 102 : 
-           self.getFollowing()
+            self.getControl( STATUS_LABEL ).setLabel(__language__(30102))
+            self.pageTimeline = 0;
+            self.userTimeline = None;
+            self.getFollowing()
         if controlId == 103 : 
-           self.getFollowers()
+            self.getControl( STATUS_LABEL ).setLabel(__language__(30103))
+            self.pageTimeline = 0;
+            self.userTimeline = None;
+            self.getFollowers()
         if controlId == 104 : 
-           self.getDirectMessages()
+            self.getControl( STATUS_LABEL ).setLabel(__language__(30104))
+            self.userTimeline = None;
+            self.getDirectMessages()
         if controlId == 105 : #Settings
             __settings__.openSettings()
         if controlId == 106 : #Exit
@@ -287,14 +308,38 @@ class GUI( xbmcgui.WindowXMLDialog ):
                 return False
         
     def onFocus( self, controlId ):
-
         self.controlId = controlId
 
+    def doMenu(self):
+        dialog = xbmcgui.Dialog()
+        idx = dialog.select(__language__(30200),[__language__(30201),__language__(30202),])
+        item = self.getControl( LIST ).getSelectedItem()
+        user=item.getProperty("id")
+        self.userTimeline = user
+        if idx == 0: 
+            self.pageTimeline = 1
+            self.getControl( STATUS_LABEL ).setLabel(__language__(30101)+" "+item.getLabel().decode('utf-8'))
+            self.getTimeline()
+        elif idx == 1: 
+            self.pageTimeline = 0
+            self.getControl( STATUS_LABEL ).setLabel(__language__(30102)+" "+item.getLabel().decode('utf-8'))
+            self.getFollowing()
+        #elif idx == 2: 
+        #    self.pageTimeline = 0
+        #    self.getControl( STATUS_LABEL ).setLabel(__language__(30103)+" "+item.getLabel().decode('utf-8'))
+        #    self.getFollowers()
+        #elif idx == 3: self.deleteShow()
 
     def onAction( self, action ):
+        if action == ACTION_CONTEXT_MENU:
+            self.doMenu()
+            pass
+        if (self.pageTimeline == 0):
+            pass
         count = self.getControl( LIST ).size()
         pos = self.getControl( LIST ).getSelectedPosition()
-        if (pos==count-1):
+        if (count > 1):
+            if (pos==count-1):
                 self.getTimeline()
         pass
 
@@ -302,5 +347,5 @@ def onAction( self, action ):
     if (buttonCode == KEY_BUTTON_BACK or buttonCode == KEY_KEYBOARD_ESC):
             self.close()
     if ( action.getButtonCode() in CANCEL_DIALOG ):
-	print "# Closing"
-	self.close()
+        print "# Closing"
+        self.close()

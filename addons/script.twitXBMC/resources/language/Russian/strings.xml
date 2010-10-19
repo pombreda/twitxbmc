@@ -24,12 +24,17 @@
   <string id="30106">Выход</string>
   <string id="30110">Смотрю</string>
   <string id="30111">Слушаю</string>
+  
+  <!-- ContextMenu -->
+  <string id="30200">Меню</string>
+  <string id="30201">Лента пользователя</string>
+  <string id="30202">Друзья пользователя</string>
 
   <!-- Message OAuth-->
-  <string id="40001">twitXBMC failed to authenticate with Twitter.[CR][CR]But not to worry, just approve twitXBMC on the next page and everything will work just fine.[CR]After approving twitXBMC you'll be given a PIN number which you'll need to enter back in twitXBMC.[CR][CR]See you back soon :)</string>
+  <string id="40001">twitXBMC не смог авторизоватся в Twitter.[CR][CR]But not to worry, just approve twitXBMC on the next page and everything will work just fine.[CR]After approving twitXBMC you'll be given a PIN number which you'll need to enter back in twitXBMC.[CR][CR]See you back soon :)</string>
   <string id="40002">Введен неверный PIN-код.[CR]Запустите скрипт и попробуйте снова.</string>
   <string id="40003">Вы сталкнулись с проблемой получения PIN-кода?[CR][CR]Зайдите на twitXBMC.googlecode.com для получения дополнительной информации.</string>
-  <string id="40004">An unexpected Twitter authentication issue as occured.</string>
+  <string id="40004">Неизвестная ошибка при подключении.</string>
   
   <!-- Settings -->
   <string id="5000">Debug</string>

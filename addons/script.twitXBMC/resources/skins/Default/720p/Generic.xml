@@ -261,12 +261,31 @@
                 </control>
             </control>
 		
+		
       <!-- ** Required ** Do not change <id> or <type> -->
+	  <control type="label" id="133">
+			<posx>240</posx>
+			<posy>10</posy>
+			<width>860</width>
+			<height>20</height>
+			<font>font18</font>
+			<aligny>center</aligny>
+			<textcolor>white</textcolor>
+			<align>center</align>
+	  </control>
+	  <control type="image">
+			<posx>260</posx>
+			<posy>40</posy>
+			<width>860</width>
+			<height>2</height>
+			<texture>separator.png</texture>
+	  </control>
+		
       <control type="list" id="2000">
         <posx>250</posx>
-        <posy>12</posy>
+        <posy>42</posy>
         <width>840</width>
-        <height>550</height>
+        <height>520</height>
         <onleft>1000</onleft>
         <onright>1000</onright>
         <onup>110</onup>

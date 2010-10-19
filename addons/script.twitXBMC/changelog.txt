@@ -1,4 +1,9 @@
 ﻿twitXBMC Changelog
+** 0.0.8 ** 
+fix: FriendsTimeline and auto loaded statuses
+ADD: view user timeline (context menu)
+ADD: view user friends (context menu)
+
 ** 0.0.7 **
 NEW: twitter api with gzip compression
 ADD: Russian translation

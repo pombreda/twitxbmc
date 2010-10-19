@@ -12,18 +12,25 @@
   <string id="30050">CLOSE</string> 
   <string id="30051">REPLY</string> 
   <string id="30052">Don't show this screen again</string>
-
   
   <!-- Menu -->
   <string id="30100">Update your status</string>
   <string id="30101">FriendsTimeline</string>
-  <string id="30102">Following</string>
+  <string id="30102">Friends</string>
   <string id="30103">Followers</string>
   <string id="30104">DirectMessages</string>
   <string id="30105">Settings</string>
   <string id="30106">Exit</string>
   <string id="30110">Video post</string>
   <string id="30111">Audio post</string>
+  
+  <!-- ContextMenu -->
+  <string id="30200">Menu</string>
+  <string id="30201">User Timeline</string>
+  <string id="30202">User Friends</string>
+  
+  
+  
 
   <!-- Message OAuth-->
   <string id="40001">twitXBMC failed to authenticate with Twitter.[CR][CR]But not to worry, just approve twitXBMC on the next page and everything will work just fine.[CR]After approving twitXBMC you'll be given a PIN number which you'll need to enter back in twitXBMC.[CR][CR]See you back soon :)</string>
