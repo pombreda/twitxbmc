@@ -1,4 +1,11 @@
 ﻿twitXBMC Changelog
+** 0.0.7 **
+NEW: twitter api with gzip compression
+ADD: Russian translation
+ADD: account information (avatar, name, location, last message)
+ADD: FriendsTimeline is automatically loaded statuses as they read
+fix: alert status too long
+
 ** 0.0.6 **
 FIX: [LINUX] automatically open web page in the browser by default
 FIX: buttons without labels

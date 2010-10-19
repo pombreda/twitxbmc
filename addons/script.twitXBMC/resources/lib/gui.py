@@ -6,7 +6,8 @@ import xbmcgui
 import xbmcaddon
 import urllib
 #import threading
-from python_twitter import *
+import twitter
+#from python_twitter import *
 from utilities import *
 from act import *
 
@@ -16,7 +17,10 @@ __language__ = __settings__.getLocalizedString
 rootDir = os.getcwd()
 if rootDir[-1] == ';':rootDir = rootDir[0:-1]
 resDir = os.path.join(rootDir, 'resources')
-cacheDir = os.path.join(resDir, 'cache')
+
+cacheDir = xbmc.translatePath('special://profile/addon_data/script.twitXBMC/cache/')
+if not os.path.exists(cacheDir): os.makedirs(cacheDir)
+
 
 STATUS_LABEL = 100
 LIST = 2000
@@ -42,6 +46,7 @@ class GUI( xbmcgui.WindowXMLDialog ):
 
 
     def onInit( self ):
+        self.pageTimeline = 0;
         self.player = xbmc.Player()
         audioIsPlaying = self.player.isPlayingAudio()
         videoIsPlaying = self.player.isPlayingVideo()
@@ -56,13 +61,26 @@ class GUI( xbmcgui.WindowXMLDialog ):
         
         twitter_key = __settings__.getSetting('Key')
         twitter_secret = __settings__.getSetting('Secret')
-        access_token = OAuthToken(twitter_key, twitter_secret)
-        self.api = OAuthApi(CONSUMER_KEY, CONSUMER_SECRET, access_token)
+        #access_token = OAuthToken(twitter_key, twitter_secret)
+        #self.api = OAuthApi(CONSUMER_KEY, CONSUMER_SECRET, access_token)
+        self.api = twitter.Api(consumer_key=CONSUMER_KEY,
+                            consumer_secret=CONSUMER_SECRET,
+                            access_token_key=twitter_key,
+                            access_token_secret=twitter_secret,
+                            base_url=__settings__.getSetting('BaseUrl'),
+                            use_gzip_compression = True)
         
-        user = self.api.GetUserInfo()
+        user = self.api.VerifyCredentials()
+        self.getControl( 100 ).setLabel(__language__(30100)+' ('+str(user.statuses_count)+')')
         self.getControl( 102 ).setLabel(__language__(30102)+' ('+str(user.friends_count)+')')
         self.getControl( 103 ).setLabel(__language__(30103)+' ('+str(user.followers_count)+')')
-
+        img_url = self.image_cache(user.id,user.profile_image_url)
+        self.getControl( 222 ).setImage(img_url)
+        self.getControl( 223 ).setLabel(user.name.encode('utf-8'))
+        self.getControl( 224 ).setLabel(user.location.encode('utf-8'))
+        self.getControl( 225 ).setLabel(user.status.text.encode('utf-8'))
+        
+        
         self.getTimeline()
         pass
     
@@ -78,8 +96,10 @@ class GUI( xbmcgui.WindowXMLDialog ):
 
     def getTimeline(self):
         xbmc.executebuiltin( "ActivateWindow(busydialog)" )
-        self.getControl( LIST ).reset()
-        statuses = self.api.GetFriendsTimeline()
+        if (self.pageTimeline==0):
+            self.getControl( LIST ).reset()
+        pos = self.getControl( LIST ).getSelectedPosition()
+        statuses = self.api.GetFriendsTimeline(page=self.pageTimeline)
         for s in statuses:
             img_url = self.image_cache(s.user.id,s.user.profile_image_url)
             listitem = xbmcgui.ListItem(label=s.user.name.encode('utf-8'),\
@@ -89,11 +109,11 @@ class GUI( xbmcgui.WindowXMLDialog ):
             timestamp = time.strftime( '%Y-%m-%d %H:%M', created )
             listitem.setProperty( "created_at", timestamp )
             listitem.setProperty( "source", s.source )
-            #listitem.setProperty( "updated", "Received on %s (UTC)" % atom.entries[i].updated.replace("T", " At ").replace("Z","") )
             self.getControl( LIST ).addItem( listitem )                
         self.setFocus( self.getControl( LIST ) )
-        self.getControl( LIST ).selectItem( 0 )
+        self.getControl( LIST ).selectItem(pos)
         xbmc.executebuiltin( "Dialog.Close(busydialog)" )
+        self.pageTimeline = self.pageTimeline + 1
     
     def getFollowing(self):
         xbmc.executebuiltin( "ActivateWindow(busydialog)" )
@@ -104,7 +124,6 @@ class GUI( xbmcgui.WindowXMLDialog ):
             s=u.status
             text = ''
             if u.status != None:
-                print s
                 text = s.text.encode('utf-8')
             listitem = xbmcgui.ListItem(label=u.name.encode('utf-8'),\
                                         label2=text,\
@@ -124,7 +143,6 @@ class GUI( xbmcgui.WindowXMLDialog ):
             s=u.status
             text = ''
             if u.status != None:
-                print s
                 text = s.text.encode('utf-8')
             listitem = xbmcgui.ListItem(label=u.name.encode('utf-8'),\
                                         label2=text,\
@@ -224,7 +242,7 @@ class GUI( xbmcgui.WindowXMLDialog ):
             # del ui
         
         pass	
-
+    
     def alertStatusEmpty( self ):
         dialog = xbmcgui.Dialog()
         dialog.ok( "Warning", __language__(30011)  )
@@ -240,13 +258,14 @@ class GUI( xbmcgui.WindowXMLDialog ):
 
     def alertStatusTooLong( self ):
         dialog = xbmcgui.Dialog()
-        dialog.ok( "Warning" , __language__(30013)  )
+        dialog.ok( "Warning" , __language__(30013)%(twitter.CHARACTER_LIMIT)  )
         
     def tweet( self, message ):
         Debug( message, True)   
         try:
             self.api.PostUpdate( message )
             self.alertStatusSuccessfullyUpdated()
+            self.getControl( 225 ).setLabel(message)
             return True
         except:
             self.alertServerConnectionFailed()
@@ -273,9 +292,10 @@ class GUI( xbmcgui.WindowXMLDialog ):
 
 
     def onAction( self, action ):
-        #if ( action.getButtonCode() in CANCEL_DIALOG ):
-        #    print "Closing"
-        #    self.close()
+        count = self.getControl( LIST ).size()
+        pos = self.getControl( LIST ).getSelectedPosition()
+        if (pos==count-1):
+                self.getTimeline()
         pass
 
 def onAction( self, action ):

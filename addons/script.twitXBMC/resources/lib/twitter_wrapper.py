@@ -10,8 +10,9 @@ import ConfigParser
 import string
 import urllib2
 
-from python_twitter import *
+#from python_twitter import *
 from utilities import *
+from twitter import *
 
 
 __settings__ = xbmcaddon.Addon(id='script.twitXBMC')
@@ -22,6 +23,18 @@ MEDIA_RESOURCE_PATH = xbmc.translatePath( os.path.join( os.getcwd(), 'resources'
 CONSUMER_KEY = "TmSvaQBT6UEZ0k5bu2GN2w"
 CONSUMER_SECRET = "bW2G8PRYzyHMxaxw7qGzjdO6fw0caOJcBT5jrhwWg"
 
+try:
+  from urlparse import parse_qsl
+except:
+  from cgi import parse_qsl
+  
+import oauth2 as oauth
+
+REQUEST_TOKEN_URL = 'http://api.twitter.com/oauth/request_token'
+ACCESS_TOKEN_URL  = 'http://api.twitter.com/oauth/access_token'
+AUTHORIZATION_URL = 'http://api.twitter.com/oauth/authorize'
+SIGNIN_URL        = 'http://api.twitter.com/oauth/authenticate'
+
 lasttweet = ""
 
 def Twitter_Login(bWhichAccount = False):
@@ -30,14 +43,20 @@ def Twitter_Login(bWhichAccount = False):
     #OAuth login details found
     twitter_key = __settings__.getSetting('Key')
     twitter_secret = __settings__.getSetting('Secret')
-    access_token = OAuthToken(twitter_key, twitter_secret)
-    api = OAuthApi(CONSUMER_KEY, CONSUMER_SECRET, access_token)
+    #access_token = OAuthToken(twitter_key, twitter_secret)
+    #api = OAuthApi(CONSUMER_KEY, CONSUMER_SECRET, access_token)
+    api = twitter.Api(consumer_key=CONSUMER_KEY,
+                            consumer_secret=CONSUMER_SECRET,
+                            access_token_key=twitter_key,
+                            access_token_secret=twitter_secret,
+                            base_url=__settings__.getSetting('BaseUrl'),
+                            use_gzip_compression = True)
     
     bVerified, sError = VerifyAuthentication(api)
     if (not bVerified):
                 ShowMessage(40001) 
                 Debug( 'get request url', True)
-                api = OAuthApi(CONSUMER_KEY, CONSUMER_SECRET) 
+                api = OAuthApi(CONSUMER_KEY, CONSUMER_SECRET,base_url=__settings__.getSetting('BaseUrl')) 
                 request_token = api.getRequestToken()
                 redirect_url = api.getAuthorizationURL(request_token)
                 Debug( 'request url - '+redirect_url, True)
@@ -53,9 +72,9 @@ def Twitter_Login(bWhichAccount = False):
                     return False, False
                 try:
                     Debug( 'get key secret', True)
-                    api = OAuthApi(CONSUMER_KEY, CONSUMER_SECRET, request_token) 
+                    api = OAuthApi(CONSUMER_KEY, CONSUMER_SECRET, request_token,base_url=__settings__.getSetting('BaseUrl')) 
                     token = api.getAccessToken(password)
-                    api = OAuthApi(CONSUMER_KEY, CONSUMER_SECRET, token)
+                    api = OAuthApi(CONSUMER_KEY, CONSUMER_SECRET, token,base_url=__settings__.getSetting('BaseUrl'))
                     Debug( 'key-%s secret%s'%(token.key,token.secret), True)
                     twitter_key = token.key
                     twitter_secret = token.secret
@@ -68,8 +87,12 @@ def Twitter_Login(bWhichAccount = False):
                 __settings__.setSetting(id='Key', value=twitter_key)
                 __settings__.setSetting(id='Secret', value=twitter_secret)
                 try:
-                    access_token = OAuthToken(twitter_key, twitter_secret)
-                    api = OAuthApi(CONSUMER_KEY, CONSUMER_SECRET, access_token)
+                    api = twitter.Api(consumer_key=CONSUMER_KEY,
+                            consumer_secret=CONSUMER_SECRET,
+                            access_token_key=twitter_key,
+                            access_token_secret=twitter_secret,
+                            base_url=__settings__.getSetting('BaseUrl'),
+                            use_gzip_compression = True)
                     bVerified, sError = VerifyAuthentication(api)
                     if (not bVerified):
                         return False, False
@@ -78,7 +101,7 @@ def Twitter_Login(bWhichAccount = False):
                     return False, False
    
     Debug( '::Login::', True) 
-    return api, access_token
+    return api, api
        
 def VerifyAuthentication(api):
     Debug( '::VerifyAuthentication::', True)   
@@ -86,9 +109,12 @@ def VerifyAuthentication(api):
     sError = ""
     if (api):
         try:
-            if (api.GetUserInfo() != None): bVerified = True
-        except:
+            user = api.VerifyCredentials()
+            if (user != None): bVerified = True
+        except Exception,ex:
             sError = "Exception: Failed to verify credentials: api.verify_credentials()"
+            print sError
+            print str(ex)
     Debug( '::VerifyAuthentication::', True)   
     return bVerified, sError
     
