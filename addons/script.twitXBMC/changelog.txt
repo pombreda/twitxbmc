@@ -1,4 +1,10 @@
 ﻿twitXBMC Changelog
+** 0.0.9 **
+ADD: retweet (context menu)
+ADD: reply (context menu)
+ADD: view retweet in FriendsTimeline (settings)
+
+
 ** 0.0.8 ** 
 fix: FriendsTimeline and auto loaded statuses
 ADD: view user timeline (context menu)

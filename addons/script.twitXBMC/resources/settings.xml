@@ -9,6 +9,9 @@
   <setting id="StatusTruncation" type="text" label="5014" default="..." />
 </category>
 <category label="5031">
+  <setting id="view_retweet" type="bool" label="5025" default="false" /> 
+</category>
+<category label="5032">
   <setting type="lsep" label="5022" /> 
   <setting id="Secret" type="text" label="Secret(OAuth):" default=""/>
   <setting id="Key" type="text" label="Key(OAuth):" default=""/>

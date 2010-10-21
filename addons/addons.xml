@@ -16,7 +16,7 @@
 
 <addon id="script.twitXBMC"
        name="twitXBMC"
-       version="0.0.8"
+       version="0.0.9"
        provider-name="Eraser">
   <requires>
     <import addon="xbmc.python" version="1.0"/>

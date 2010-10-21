@@ -103,8 +103,11 @@ class GUI( xbmcgui.WindowXMLDialog ):
         if (self.pageTimeline==1):
             self.getControl( LIST ).reset()
         pos = self.getControl( LIST ).getSelectedPosition()
+        
+        retw = __settings__.getSetting('view_retweet')
+        
         if (self.userTimeline is None): 
-            statuses = self.api.GetFriendsTimeline(page=self.pageTimeline)
+            statuses = self.api.GetFriendsTimeline(page=self.pageTimeline,retweets=retw)
         else:
             statuses = self.api.GetUserTimeline(id = self.userTimeline,page=self.pageTimeline)
         for s in statuses:
@@ -116,7 +119,9 @@ class GUI( xbmcgui.WindowXMLDialog ):
             timestamp = time.strftime( '%Y-%m-%d %H:%M', created )
             listitem.setProperty( "created_at", timestamp )
             listitem.setProperty( "source", s.source )
-            listitem.setProperty( "id", str(s.user.id) )
+            listitem.setProperty( "idUser", str(s.user.id) )
+            listitem.setProperty( "nickUser", str(s.user.screen_name) )
+            listitem.setProperty( "idStatus", str(s.id) )
             self.getControl( LIST ).addItem( listitem )                
         self.setFocus( self.getControl( LIST ) )
         self.getControl( LIST ).selectItem(pos)
@@ -136,7 +141,7 @@ class GUI( xbmcgui.WindowXMLDialog ):
             listitem = xbmcgui.ListItem(label=u.name.encode('utf-8'),\
                                         label2=text,\
                                         thumbnailImage=img_url)
-            listitem.setProperty( "id", str(u.id) )
+            listitem.setProperty( "idUser", str(u.id) )
             self.getControl( LIST ).addItem( listitem )                
 
         self.setFocus( self.getControl( LIST ) )
@@ -156,7 +161,7 @@ class GUI( xbmcgui.WindowXMLDialog ):
             listitem = xbmcgui.ListItem(label=u.name.encode('utf-8'),\
                                         label2=text,\
                                         thumbnailImage=img_url)
-            listitem.setProperty( "id", str(u.id) )
+            listitem.setProperty( "idUser", str(u.id) )
             self.getControl( LIST ).addItem( listitem )                
 
         self.setFocus( self.getControl( LIST ) )
@@ -281,10 +286,10 @@ class GUI( xbmcgui.WindowXMLDialog ):
         dialog = xbmcgui.Dialog()
         dialog.ok( "Warning" , __language__(30013)%(twitter.CHARACTER_LIMIT)  )
         
-    def tweet( self, message ):
+    def tweet( self, message, reply_id=None ):
         Debug( message, True)   
         try:
-            self.api.PostUpdate( message )
+            self.api.PostUpdate( message, reply_id )
             self.alertStatusSuccessfullyUpdated()
             self.getControl( 225 ).setLabel(message)
             return True
@@ -311,10 +316,16 @@ class GUI( xbmcgui.WindowXMLDialog ):
         self.controlId = controlId
 
     def doMenu(self):
-        dialog = xbmcgui.Dialog()
-        idx = dialog.select(__language__(30200),[__language__(30201),__language__(30202),])
         item = self.getControl( LIST ).getSelectedItem()
-        user=item.getProperty("id")
+        user=item.getProperty("idUser")
+        status = item.getProperty("idStatus")
+        #print status
+        dialog = xbmcgui.Dialog()
+        if (status !=""):
+            idx = dialog.select(__language__(30200),[__language__(30201),__language__(30202),__language__(30203),__language__(30204),])
+        else:
+            idx = dialog.select(__language__(30200),[__language__(30201),__language__(30202),])
+
         self.userTimeline = user
         if idx == 0: 
             self.pageTimeline = 1
@@ -324,11 +335,23 @@ class GUI( xbmcgui.WindowXMLDialog ):
             self.pageTimeline = 0
             self.getControl( STATUS_LABEL ).setLabel(__language__(30102)+" "+item.getLabel().decode('utf-8'))
             self.getFollowing()
-        #elif idx == 2: 
-        #    self.pageTimeline = 0
-        #    self.getControl( STATUS_LABEL ).setLabel(__language__(30103)+" "+item.getLabel().decode('utf-8'))
-        #    self.getFollowers()
-        #elif idx == 3: self.deleteShow()
+        elif idx == 2: 
+            message = "RT: @%s %s"%(item.getLabel(),item.getLabel2(),)
+            self.tweet("", status)
+        elif idx == 3: 
+            keyboard = xbmc.Keyboard( "", __language__(30014) )
+            keyboard.doModal()
+            if keyboard.isConfirmed():
+                message = keyboard.getText().strip()
+                if message == "":
+                    self.alertStatusEmpty()
+                elif len( message ) > twitter.CHARACTER_LIMIT:
+                    self.alertStatusTooLong()
+                else:
+                    nickUser = item.getProperty("nickUser")
+                    message = "@%s %s"%(nickUser,message)
+                    self.tweet(message, status)
+            
 
     def onAction( self, action ):
         if action == ACTION_CONTEXT_MENU:

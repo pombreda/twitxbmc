@@ -29,6 +29,8 @@
   <string id="30200">Меню</string>
   <string id="30201">Лента пользователя</string>
   <string id="30202">Друзья пользователя</string>
+  <string id="30203">Ретвит</string>
+  <string id="30204">Ответ</string>
 
   <!-- Message OAuth-->
   <string id="40001">twitXBMC не смог авторизоватся в Twitter.[CR][CR]But not to worry, just approve twitXBMC on the next page and everything will work just fine.[CR]After approving twitXBMC you'll be given a PIN number which you'll need to enter back in twitXBMC.[CR][CR]See you back soon :)</string>
@@ -47,8 +49,11 @@
   <string id="5021">Автопостинг</string> 
   <string id="5022">Авторизация</string> 
 
+    <string id="5025">Показывать ретвиты</string> 
+
   <string id="5030">Основные</string> 
-  <string id="5031">Расширенные</string> 
+  <string id="5031">Интерфейс</string> 
+  <string id="5032">Расширенные</string> 
  
   
 </strings>

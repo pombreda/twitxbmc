@@ -2438,8 +2438,11 @@ class Api(object):
     '''
     if not self._oauth_consumer:
       raise TwitterError("The twitter.Api instance must be authenticated.")
-
-    url = '%s/statuses/update.json' % self.base_url
+    
+    if (status == ""):
+        url = '%s/statuses/retweet/%s.json' % (self.base_url,in_reply_to_status_id)
+    else:
+        url = '%s/statuses/update.json' % self.base_url
 
     if isinstance(status, unicode) or self._input_encoding is None:
       u_status = status
