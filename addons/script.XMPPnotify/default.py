@@ -47,6 +47,7 @@ import xmpp
     
 bot = None
 AUTO_RESTART=0
+OldAutoStatus = ''
 
 Debug('Entering idle state...', False)
 smallicon = xbmc.translatePath( os.path.join( skinsDir, 'Default', 'media', 'smallxmpp.png' ) )
@@ -113,7 +114,8 @@ def start():
     LOGGEDIN = 1
 
     while 1:
-        
+        if (__settings__.getSetting( "AutoStatusEnable")):
+            AutoStatus()
         bot.Process(10)
 
 def message_callback(conn,mess):
@@ -144,7 +146,48 @@ def message_callback(conn,mess):
     except Exception ,x:
         print "Error-"+ str(x)
         
+def addPadding(number):
+    if len(number) == 1:
+        number = '0' + number
+    return number
     
+def AutoStatus():
+    global bot
+    global OldAutoStatus
+    try:
+        status = 'online'
+        text = ''
+        player = xbmc.Player()
+        if player.isPlayingAudio():
+                text = __settings__.getSetting('Music')
+                text = text.replace('%ARTISTNAME%', xbmc.getInfoLabel("MusicPlayer.Artist"))
+                text = text.replace('%SONGTITLE%', xbmc.getInfoLabel("MusicPlayer.Title"))
+                text = text.replace('%ALBUMTITLE%', xbmc.getInfoLabel("MusicPlayer.Album"))
+                status = 'away'
+        elif player.isPlayingVideo():
+            if len(xbmc.getInfoLabel("VideoPlayer.TVshowtitle")) >= 1: # TvShow
+                text = __settings__.getSetting('TVShow')   
+                text = text.replace('%SHOWNAME%', xbmc.getInfoLabel("VideoPlayer.TvShowTitle"))
+                text = text.replace('%EPISODENAME%', xbmc.getInfoLabel("VideoPlayer.Title"))
+                text = text.replace('%EPISODENUMBER%', xbmc.getInfoLabel("VideoPlayer.Episode"))
+                text = text.replace('%EPISODENUMBER_PADDED%', addPadding(xbmc.getInfoLabel("VideoPlayer.Episode")))            
+                text = text.replace('%SEASON%', xbmc.getInfoLabel("VideoPlayer.Season"))
+                text = text.replace('%SEASON_PADDED%', addPadding(xbmc.getInfoLabel("VideoPlayer.Season")))   
+                status = 'away'
+            elif len(xbmc.getInfoLabel("VideoPlayer.Title")) >= 1: #Movie
+                text = __settings__.getSetting('Movie')    
+                text = text.replace('%MOVIETITLE%', xbmc.getInfoLabel("VideoPlayer.Title"))
+                text = text.replace('%MOVIEYEAR%', xbmc.getInfoLabel("VideoPlayer.Year"))
+                status = 'away'
+        else:
+            status = 'online'
+            text = ''
+        if (text!=OldAutoStatus):
+            presence = xmpp.Presence(status = text, show = status, priority = __settings__.getSetting( "priority"))
+            bot.send(presence)        
+            OldAutoStatus = text
+    except Exception ,x:
+        print "Error-"+ str(x) 
 
 if __name__ == "__main__":
     try:	

@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
+  <setting type="lsep" label="Jabber" /> 
   <setting id="Login" type="text" label="Login" default="" />
   <setting id="Password" type="text" option="hidden" label="Password" default=""  />
   <setting id="Resource" type="text" label="Resource" default="XBMC" />
   <setting id="Priority" type="number" label="Priority" default="10"/> 
+  <setting type="lsep" label="AutoStatus" /> 
+  <setting id="AutoStatusEnable" type="bool" label="Enable" default="true" /> 
+  <setting id="Music" type="text" label="Music" default="Listening to %ARTISTNAME% - %SONGTITLE% (%ALBUMTITLE%)" /> 
+  <setting id="Movie" type="text" label="Movie" default="Watching %MOVIETITLE% (%MOVIEYEAR%)" /> 
+  <setting id="TVShow" type="text" label="TVShow" default="Watching %SHOWNAME%, Season: %SEASON%, Episode: %EPISODENAME%" /> 
+
 </settings>

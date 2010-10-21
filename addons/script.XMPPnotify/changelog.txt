@@ -1,4 +1,6 @@
 ﻿Changelog
+** 0.0.3 **
+ADD:auto status (watch, listen)
 
 ** 0.0.2 **
 ADD: message save sqlite base
@@ -7,8 +9,10 @@ ADD: message save sqlite base
 Initial Release
 
 
-todo
-auto status (watch, listen)
+-= todo =-
+fix set priority
+view avatar, nick
+translate
 commands control for XBMC
 change baloon style
 
