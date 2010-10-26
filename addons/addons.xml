@@ -69,4 +69,21 @@
     <platform>all</platform>
   </extension>
 </addon>
+
+<addon id="script.Screensaver.Clock"
+       name="Clock"
+       version="0.0.1"
+       provider-name="Eraser">
+  <requires>
+    <import addon="xbmc.python" version="1.0"/>
+  </requires>
+  <extension point="xbmc.python.script" library="default.py">
+   <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Screensaver clock</summary>
+    <description lang="en"></description>
+    <platform>all</platform>
+  </extension>
+</addon>
 </addons>
