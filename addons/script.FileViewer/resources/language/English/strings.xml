@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>
+	<string id="0">FileViewer</string>
+
+	<string id="100">All</string>
+	<string id="101">Videos</string>
+	<string id="102">Music</string>
+	<string id="103">Pictures</string>
+	<string id="110">Select Media Type</string>
+	<string id="111">Select File To View</string>
+
+</strings>

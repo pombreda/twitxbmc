@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.FileViewer"
+       name="FileViewer"
+       version="1.0"
+       provider-name="Eraser">
+  <requires>
+    <import addon="xbmc.python" version="1.0"/>
+  </requires>
+  <extension point="xbmc.python.script" library="default.py">
+   <provides>executable</provides> 
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">FileViewer</summary>
+    <description lang="en">View video, audio, picture, text</description>
+    <platform>all</platform>
+  </extension>
+</addon>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>
+	<string id="0">Файловый просмотрщик</string>
+
+	<string id="100">Все</string>
+	<string id="101">Видео</string>
+	<string id="102">Аудио</string>
+	<string id="103">Изображения</string>
+	<string id="110">Выберите тип данных</string>
+	<string id="111">Выберите файл для просмотра</string>
+
+</strings>

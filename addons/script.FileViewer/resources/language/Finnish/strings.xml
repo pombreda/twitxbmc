@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+
+<strings>  <!--   17.4.2009 Finnish   -->
+
+	<string id="0">FileViewer</string>
+
+	<string id="100">Kaikki</string>
+	<string id="101">Videot</string>
+	<string id="102">Musiikki</string>
+	<string id="103">Kuvat</string>
+	<string id="110">Vaihda mediavalikkoa</string>
+	<string id="111">Valitse näytettävä tiedosto</string>
+</strings>
