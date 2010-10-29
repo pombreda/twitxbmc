@@ -72,7 +72,7 @@
 
 <addon id="script.Screensaver.Clock"
        name="Clock"
-       version="0.0.1"
+       version="0.0.2"
        provider-name="Eraser">
   <requires>
     <import addon="xbmc.python" version="1.0"/>
@@ -82,7 +82,7 @@
   </extension>
   <extension point="xbmc.addon.metadata">
     <summary lang="en">Screensaver clock</summary>
-    <description lang="en"></description>
+    <description lang="en">It's not quite screensaver, this application that shows the clock. Can be used as screensaver.</description>
     <platform>all</platform>
   </extension>
 </addon>

@@ -132,7 +132,7 @@ class GUI( xbmcgui.WindowXMLDialog ):
             self.ui.getControl( DIGIT21 ).setVisible(1)
             h=40
             while (i<12):
-                #time.sleep(0.05)
+                time.sleep(0.01)
                 print background+ "|"+ str(i)+".png"
                 self.ui.getControl( FLIP1 ).setImage(os.path.join(background,str(i)+".png"))
                 h=h-3
@@ -152,7 +152,7 @@ class GUI( xbmcgui.WindowXMLDialog ):
             self.ui.getControl( DIGIT220 ).setVisible(1)
             h=3
             while (i<20):
-                #time.sleep(0.05)
+                time.sleep(0.01)
                 print background+ "|"+ str(i)+".png"
                 h=h+4
                 self.ui.getControl( FLIP1 ).setImage(os.path.join(background,str(i)+".png"))
@@ -195,7 +195,7 @@ class GUI( xbmcgui.WindowXMLDialog ):
             self.ui.getControl( DIGIT41 ).setVisible(1)
             h=40
             while (i<12):
-                #time.sleep(0.05)
+                time.sleep(0.01)
                 print background+ "|"+ str(i)+".png"
                 self.ui.getControl( FLIP2 ).setImage(os.path.join(background,str(i)+".png"))
                 h=h-3
@@ -215,7 +215,7 @@ class GUI( xbmcgui.WindowXMLDialog ):
             self.ui.getControl( DIGIT420 ).setVisible(1)
             h=3
             while (i<20):
-                #time.sleep(0.05)
+                time.sleep(0.01)
                 print background+ "|"+ str(i)+".png"
                 h=h+4
                 self.ui.getControl( FLIP2 ).setImage(os.path.join(background,str(i)+".png"))
