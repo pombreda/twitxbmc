@@ -1,4 +1,105 @@
 <includes>
+	<include name="PictureWrapView">
+		<control type="group">
+			<visible>Control.IsVisible(510)</visible>
+			<include>VisibleFadeEffect</include>
+			<posx>0</posx>
+			<posy>440</posy>
+			<control type="wraplist" id="510">
+				<posx>-45</posx>
+				<posy>5</posy>
+				<width>1330</width>
+				<height>270</height>
+				<onleft>508</onleft>
+				<onright>508</onright>
+				<onup>2</onup>
+				<ondown>60</ondown>
+				<viewtype label="31032">wrap</viewtype>
+				<pagecontrol>60</pagecontrol>
+				<scrolltime>200</scrolltime>
+				<focusposition>3</focusposition>
+				<orientation>horizontal</orientation>
+				<preloaditems>4</preloaditems>
+				<itemlayout height="200" width="190">
+					<control type="image">
+						<posx>15</posx>
+						<posy>40</posy>
+						<width>160</width>
+						<height>160</height>
+						<aspectratio>stretch</aspectratio>
+						<bordertexture border="10">ThumbShadow.png</bordertexture>
+						<bordersize>8</bordersize>
+						<fadetime>200</fadetime>
+						<texture border="2">ThumbBG.png</texture>
+					</control>
+					<control type="image">
+						<posx>25</posx>
+						<posy>50</posy>
+						<width>140</width>
+						<height>140</height>
+						<aspectratio>keep</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+					</control>
+				</itemlayout>
+				<focusedlayout height="200" width="190">
+					<control type="image">
+						<posx>15</posx>
+						<posy>40</posy>
+						<width>160</width>
+						<height>160</height>
+						<aspectratio>stretch</aspectratio>
+						<bordertexture border="10">ThumbShadow.png</bordertexture>
+						<bordersize>8</bordersize>
+						<fadetime>200</fadetime>
+						<texture border="2">ThumbBG.png</texture>
+						<animation reversible="false" effect="zoom" start="15,40,160,160" end="-10,-5,210,210" time="200">focus</animation>
+						<animation reversible="false" effect="zoom" end="15,40,160,160" start="-10,-5,210,210" time="200">unfocus</animation>
+					</control>
+					<control type="image">
+						<posx>25</posx>
+						<posy>50</posy>
+						<width>140</width>
+						<height>140</height>
+						<aspectratio>keep</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<animation reversible="false" effect="zoom" start="25,50,140,140" end="5,10,180,180" time="200">focus</animation>
+						<animation reversible="false" effect="zoom" end="25,50,140,140" start="5,10,180,180" time="200">unfocus</animation>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="label">
+				<posx>40</posx>
+				<posy>220</posy>
+				<width>1200</width>
+				<height>30</height>
+				<font>font13_title</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<scroll>true</scroll>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+			<control type="scrollbar" id="60">
+				<posx>310</posx>
+				<posy>245</posy>
+				<width>660</width>
+				<height>25</height>
+				<texturesliderbackground border="14,0,14,0">ScrollBarH.png</texturesliderbackground>
+				<texturesliderbar border="14,0,14,0">ScrollBarH_bar.png</texturesliderbar>
+				<texturesliderbarfocus border="14,0,14,0">ScrollBarH_bar_focus.png</texturesliderbarfocus>
+				<textureslidernib>ScrollBarNib.png</textureslidernib>
+				<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+				<onup>510</onup>
+				<ondown>2</ondown>
+				<showonepage>false</showonepage>
+				<orientation>horizontal</orientation>
+				<visible>Control.IsVisible(510)</visible>
+			</control>
+		</control>
+	</include>
+	
+
 	<include name="PictureThumbView">
 		<control type="group">
 			<visible>Control.IsVisible(511)</visible>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.Big-cirrus.Extended" version="1.0.2" name="Big-Cirrus.Extended" provider-name="Eraser">
+<addon id="skin.Big-cirrus.Extended" version="1.0.3" name="Big-Cirrus.Extended" provider-name="Eraser">
 	<requires>
 		<import addon="xbmc.gui" version="2.11"/>
 		<import addon="script.logo-downloader" version="2.0.0"/>

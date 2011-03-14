@@ -1,7 +1,7 @@
 <window id="2">
   <defaultcontrol always="true">50</defaultcontrol>
   <allowoverlay>no</allowoverlay>
-  <views>50,511</views>
+  <views>50,500,511,510</views>
   <controls>
     <include>CommonPictureBackground</include>
     <include>CommonMediaPlayingBackground</include>
@@ -36,6 +36,15 @@
         <include>VisibleFadeEffect</include>
         <visible>Control.IsVisible(50)</visible>
       </control>
+	  <control type="image">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>1280</width>
+        <height>720</height>
+        <texture border="20">black-back.png</texture>
+        <include>VisibleFadeEffect</include>
+        <visible>Control.IsVisible(500)</visible>
+      </control>
       <control type="group">
         <include>VisibleFadeEffect</include>
         <visible>Control.IsVisible(50)</visible>
@@ -52,6 +61,9 @@
       <include>Window_OpenClose_Animation</include>    
       <include>CommonRootView</include> <!-- view id = 50 -->
       <include>PictureThumbView</include> <!-- view id = 511 -->
+	  <include>PictureWrapView</include>  <!-- view id = 510 -->
+	  <include>ThumbnailView</include> 
+
     </control>
     <include>CommonPageCount</include>
     <include>BehindDialogFadeOut</include>
