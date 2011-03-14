@@ -14,6 +14,8 @@
     </control>
     <include>CommonMediaPlayingBackground</include>
     <include condition="Skin.HasSetting(homepageHideRecentlyAdded)">HomeRecentlyAddedInfo</include>
+	<include condition="Skin.HasSetting(ShowWeatherWidget)">HomepageWeatherWidget</include> 
+
 	<include>HomeNowPlaying</include>
     <include condition="!Skin.HasSetting(horzHomeMenu)">HomeMenu</include>
 	<include condition="Skin.HasSetting(horzHomeMenu)">HomeMenuHoriz</include>
@@ -68,7 +70,21 @@
           <height>50</height>
           <aspectratio>keep</aspectratio>
           <texture>$INFO[Weather.Conditions]</texture>
+		  <visible>!Skin.HasSetting(EnableAnimationWeather)</visible>
         </control>
+		<control type="multiimage">
+			<description>current weather icon</description>
+            <posx>75</posx>
+            <posy>-13</posy>
+            <width>50</width>
+            <height>50</height>
+			<imagepath>special://skin/images/weather/$INFO[Window(Weather).Property(Current.FanartCode)]</imagepath>
+			<timeperimage>100</timeperimage>
+			<randomize>false</randomize>
+			<aspectratio>keep</aspectratio>
+			<fadetime>0</fadetime>
+			<visible>Skin.HasSetting(EnableAnimationWeather)</visible>
+		</control>
         <control type="label">
           <description>temp label</description>
           <posx>0</posx>
@@ -96,7 +112,7 @@
       <posy>15</posy>
       <animation effect="slide" end="0,35" time="300" tween="quadratic" easing="out">WindowClose</animation>
       <animation effect="slide" start="0,35" time="300" tween="quadratic" easing="out">WindowOpen</animation>
-      <control type="rss">
+      <control type="rss" id="2">
         <description>RSS feed</description>
         <posx>0</posx>
         <posy>670</posy>
@@ -104,6 +120,19 @@
         <width>1040</width>
         <font>font12</font>
         <urlset>1</urlset>
+        <textcolor>orange</textcolor>
+        <titlecolor>orange</titlecolor>
+        <headlinecolor>white</headlinecolor>
+        <visible>system.getbool(lookandfeel.enablerssfeeds)</visible>
+      </control>
+	  <control type="rss" id="1">
+        <description>RSS feed</description>
+        <posx>0</posx>
+        <posy>645</posy>
+        <height>35</height>
+        <width>1040</width>
+        <font>font12</font>
+        <urlset>2</urlset>
         <textcolor>orange</textcolor>
         <titlecolor>orange</titlecolor>
         <headlinecolor>white</headlinecolor>

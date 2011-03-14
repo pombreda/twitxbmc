@@ -242,6 +242,7 @@
 				<shadowcolor>black</shadowcolor>
 			</control>
 			<include>Clock</include>
+			<include>WeatherOSD</include>
 		</control>
 	</controls>
 </window>

@@ -1,3 +1,10 @@
-1.0.0
+1.0.2
++weather widget
++add weather in VideoOSD and AudioOSD
++Plot visible if not empty
++animation weather
++add RSS line (now 2)
+
+1.0.1
 +support weather fanart
 +support Weather+

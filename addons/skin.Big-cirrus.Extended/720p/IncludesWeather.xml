@@ -112,8 +112,22 @@
           <height>180</height>
           <info>Window.Property(Current.ConditionIcon)</info>
           <aspectratio>keep</aspectratio>
+		  <visible>!Skin.HasSetting(EnableAnimationWeather)</visible>
         </control>
-        <control type="label">
+		<control type="multiimage">
+			<description>current weather icon</description>
+            <posx>230</posx>
+			<posy>105</posy>
+			<width>230</width>
+			<height>180</height>
+			<imagepath>special://skin/images/weather/$INFO[Window.Property(Current.FanartCode)]</imagepath>
+			<timeperimage>100</timeperimage>
+			<randomize>false</randomize>
+			<aspectratio>keep</aspectratio>
+			<fadetime>0</fadetime>
+			<visible>Skin.HasSetting(EnableAnimationWeather)</visible>
+		</control>
+	    <control type="label">
           <description>current condition label</description>
           <posx>20</posx>
           <posy>280</posy>

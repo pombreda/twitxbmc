@@ -14,7 +14,7 @@
  				<texture>OSDbackground.png</texture> <!-- flip y when up the top -->
 			</control>
 			<control type="group"> <!-- PLOT -->
-				<visible>Skin.HasSetting(plotfi)</visible>
+				<visible>[Skin.HasSetting(plotfi) + !StringCompare("",VideoPlayer.Plot)]</visible>
 				<animation effect="slide" start="0,-160" end="0,0" time="400" tween="quadratic" easing="out">WindowOpen</animation>
 				<animation effect="slide" start="0,0" end="0,-160" time="400" tween="quadratic" easing="out">WindowClose</animation>
 				<control type="image"> <!-- background -->

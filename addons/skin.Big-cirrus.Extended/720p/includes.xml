@@ -13,6 +13,10 @@
 
   <!-- Weather+ -->
   <include file="IncludesWeather.xml" /> 
+  <!-- Home Weather Widget -->
+  <include file="IncludesHomepageWeatherWidget.xml" /> 
+
+  <include file="WeatherOsd.xml" /> 
 
   
   <constant name="FanartCrossfadeTime">400</constant>

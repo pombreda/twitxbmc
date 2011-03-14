@@ -322,6 +322,7 @@
 				<shadowcolor>black</shadowcolor>
 			</control>
 			<include>Clock</include>
+			<include>WeatherOSD</include>
 		</control>
 		<control type="selectbutton" id="503">
 			<posx>440</posx>
