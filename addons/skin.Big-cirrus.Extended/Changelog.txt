@@ -1,3 +1,7 @@
+[B]1.0.5[/B]
+- remove support script.genre-editor
++ autohide button for not installed script
+
 [B]1.0.4[/B]
 + support script.library.editor (add button)
 + support script.cinema.experience (add button)

@@ -831,28 +831,12 @@
 					<ondown>50</ondown>
 					<!-- Buttons -->
 					<control type="button" id="101">
-						<visible>container.content(episodes) | container.content(TVShows) | container.content(seasons)</visible>
-						<enable>System.HasAddon(script.logo-downloader)</enable>
+						<visible>System.HasAddon(script.logo-downloader) + [container.content(episodes) | container.content(TVShows) | container.content(seasons)]</visible>
 						<description>Get Logo</description>
 						<include>ButtonInfoDialogsCommonValues</include>
-						<onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=True,clearart=True,"showname=$INFO[ListItem.TVShowTitle]")</onclick>
+						<!--onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=True,clearart=True,"showname=$INFO[ListItem.TVShowTitle]")</onclick-->
+						<onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=True,clearart=True,showthumb=landscape.jpg,poster=poster.jpg,banner=banner.jpg,showname=$INFO[ListItem.TVShowTitle])</onclick>
 						<label>Logo</label>
-					</control>
-					<control type="button" id="103">
-						<description>Edit genre</description>
-						<visible>container.content(movies)</visible>
-						<enable>System.HasAddon(script.genre-editor)</enable>
-						<include>ButtonInfoDialogsCommonValues</include>
-						<onclick>XBMC.RunScript(script.genre-editor,"$INFO[ListItem.Title]","$INFO[ListItem.FileName]")</onclick>
-						<label>Edit genre</label>
-					</control>
-					<control type="button" id="102">
-						<description>Edit genre</description>
-						<visible>container.content(episodes) | container.content(TVShows) | container.content(seasons)</visible>
-						<enable>System.HasAddon(script.genre-editor)</enable>
-						<include>ButtonInfoDialogsCommonValues</include>
-						<onclick>XBMC.RunScript(script.genre-editor,"$INFO[ListItem.TVShowTitle]","TVShow")</onclick>
-						<label>Edit genre</label>
 					</control>
 					<control type="button" id="5">
 						<description>Cast/Review</description>
@@ -910,7 +894,7 @@
 					  <description>TvTunes</description> 
 					  <include>ButtonInfoDialogsCommonValues</include> 
 					  <visible>container.content(TVShows)</visible> 
-					  <enable>System.HasAddon(script.TvTunes)</enable>
+					  <!--nable>System.HasAddon(script.TvTunes)</enable-->
 					  <label>TvTunes</label> 
 					  <onclick>XBMC.RunScript(script.TvTunes,mode=solo&tvpath=$INFO[ListItem.FilenameAndPath]&tvname=$INFO[ListItem.TVShowTitle])</onclick> 
 					</control>
