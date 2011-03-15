@@ -15,6 +15,7 @@
     <include>CommonMediaPlayingBackground</include>
     <include condition="Skin.HasSetting(homepageHideRecentlyAdded)">HomeRecentlyAddedInfo</include>
 	<include condition="Skin.HasSetting(ShowWeatherWidget)">HomepageWeatherWidget</include> 
+	<include condition="Skin.HasSetting(ShowSystemInfoWidget)">HomepageSystemInfoWidget</include> 
 
 	<include>HomeNowPlaying</include>
     <include condition="!Skin.HasSetting(horzHomeMenu)">HomeMenu</include>

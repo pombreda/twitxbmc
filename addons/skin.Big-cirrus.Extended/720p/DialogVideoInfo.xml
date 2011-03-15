@@ -22,7 +22,7 @@
 						<width>1280</width>
 						<height>660</height>
 						<texture>videoinfoback.png</texture>
-					</control>
+				</control>
 				
 				<control type="group"> <!-- ====== MOVIES SECTION ======== -->
 					<visible>[!container.content(tvshows) + !container.content(episodes) + !container.content(musicvideos)]</visible>
@@ -447,6 +447,27 @@
 					<include>VisibleFadeEffect</include>
 					<control type="group">
 						<visible>!Control.IsVisible(50)</visible> 
+						<!--control type="largeimage" id="7914"> 
+							<posx>20</posx> 
+							<posy>100</posy> 
+							<width>325</width> 
+							<height>130</height> 
+							<texture fallback="notvshowlogo.png">$INFO[ListItem.path]../logo.png</texture> 
+							<fadetime>100</fadetime> 
+							<aspectratio scalediffuse="false">keep</aspectratio> 
+						</control-->	
+						
+						<!-- TV SHOW LOGO -->
+						<control type="largeimage" id="7914"> 
+							<posx>20</posx> 
+							<posy>100</posy> 
+							<width>325</width> 
+							<height>130</height> 
+							<texture fallback="notvshowlogo.png">$INFO[ListItem.path]logo.png</texture> 
+							<fadetime>100</fadetime> 
+							<aspectratio scalediffuse="false">keep</aspectratio> 
+							<visible>substring(listitem.path,"Season")</visible> 
+						</control>
 						<control type="largeimage" id="7914"> 
 							<posx>20</posx> 
 							<posy>100</posy> 
@@ -455,8 +476,9 @@
 							<texture fallback="notvshowlogo.png">$INFO[ListItem.path]../logo.png</texture> 
 							<fadetime>100</fadetime> 
 							<aspectratio scalediffuse="false">keep</aspectratio> 
-							
-						</control>	
+							<visible>!substring(ListItem.path,"Season")</visible> 
+						</control>
+						
 						<control type="image">
 							<posx>0</posx>
 							<posy>330</posy>
@@ -810,6 +832,7 @@
 					<!-- Buttons -->
 					<control type="button" id="101">
 						<visible>container.content(episodes) | container.content(TVShows) | container.content(seasons)</visible>
+						<enable>System.HasAddon(script.logo-downloader)</enable>
 						<description>Get Logo</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=True,clearart=True,"showname=$INFO[ListItem.TVShowTitle]")</onclick>
@@ -818,6 +841,7 @@
 					<control type="button" id="103">
 						<description>Edit genre</description>
 						<visible>container.content(movies)</visible>
+						<enable>System.HasAddon(script.genre-editor)</enable>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<onclick>XBMC.RunScript(script.genre-editor,"$INFO[ListItem.Title]","$INFO[ListItem.FileName]")</onclick>
 						<label>Edit genre</label>
@@ -825,6 +849,7 @@
 					<control type="button" id="102">
 						<description>Edit genre</description>
 						<visible>container.content(episodes) | container.content(TVShows) | container.content(seasons)</visible>
+						<enable>System.HasAddon(script.genre-editor)</enable>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<onclick>XBMC.RunScript(script.genre-editor,"$INFO[ListItem.TVShowTitle]","TVShow")</onclick>
 						<label>Edit genre</label>
@@ -864,6 +889,32 @@
 						<label>20410</label>
 						<visible>!IsEmpty(ListItem.Trailer)</visible>
 					</control>
+					<control type="button" id="16">
+					  <description>DB Editor</description> 
+					  <label>DB $LOCALIZE[33065]</label> 
+					  <onclick>RunScript(script.library.editor)</onclick> 
+					  <visible>System.HasAddon(script.library.editor) + IsEmpty(ListItem.Property(HasMovieSets))</visible> 
+					  <enable>container.content(Movies) | Container.Content(MusicVideos) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes)</enable> 
+					  <include>ButtonInfoDialogsCommonValues</include> 
+					</control>
+					<control type="button" id="13">
+					  <description>Home Theater Experience</description> 
+					  <include>ButtonInfoDialogsCommonValues</include> 
+					  <visible>System.HasAddon(script.cinema.experience) + Container.Content(Movies)</visible> 
+					  <label>Cinema</label> 
+					  <onclick>Dialog.Close(MovieInformation)</onclick> 
+					  <onclick>Playlist.Clear</onclick> 
+					  <onclick>XBMC.RunScript(script.cinema.experience)</onclick> 
+					 </control>
+					<control type="button" id="17">
+					  <description>TvTunes</description> 
+					  <include>ButtonInfoDialogsCommonValues</include> 
+					  <visible>container.content(TVShows)</visible> 
+					  <enable>System.HasAddon(script.TvTunes)</enable>
+					  <label>TvTunes</label> 
+					  <onclick>XBMC.RunScript(script.TvTunes,mode=solo&tvpath=$INFO[ListItem.FilenameAndPath]&tvname=$INFO[ListItem.TVShowTitle])</onclick> 
+					</control>
+
 				</control>
 			</control>
 			<control type="group">

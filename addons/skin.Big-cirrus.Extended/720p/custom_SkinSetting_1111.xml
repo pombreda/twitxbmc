@@ -2837,19 +2837,6 @@
 						<aligny>center</aligny>
 					</control>
 					<control type="radiobutton" id="1013">
-					<description>Enable Weather Widget</description>
-						<width>750</width>
-						<height>40</height>
-						<font>cirrus_20</font>
-						<label>Enable Weather Widget</label>
-						<textcolor>grey2</textcolor>
-						<focusedcolor>white</focusedcolor>
-						<texturefocus flipx="true">listwhitegradient.png</texturefocus>
-						<texturenofocus>menuitemNF.png</texturenofocus>
-						<onclick>Skin.ToggleSetting(ShowWeatherWidget)</onclick>
-						<selected>Skin.HasSetting(ShowWeatherWidget)</selected>
-					</control>
-					<control type="radiobutton" id="1014">
 					<description>Enable Animation Weather</description>
 						<width>750</width>
 						<height>40</height>
@@ -2862,6 +2849,33 @@
 						<onclick>Skin.ToggleSetting(EnableAnimationWeather)</onclick>
 						<selected>Skin.HasSetting(EnableAnimationWeather)</selected>
 					</control>
+					<control type="radiobutton" id="1014">
+					<description>Enable Weather Widget</description>
+						<width>750</width>
+						<height>40</height>
+						<font>cirrus_20</font>
+						<label>Enable Weather Widget</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus flipx="true">listwhitegradient.png</texturefocus>
+						<texturenofocus>menuitemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(ShowWeatherWidget)</onclick>
+						<selected>Skin.HasSetting(ShowWeatherWidget)</selected>
+					</control>
+					<control type="radiobutton" id="1015">
+					<description>Enable SystemInfo Widget</description>
+						<width>750</width>
+						<height>40</height>
+						<font>cirrus_20</font>
+						<label>Enable SystemInfo Widget</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus flipx="true">listwhitegradient.png</texturefocus>
+						<texturenofocus>menuitemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(ShowSystemInfoWidget)</onclick>
+						<selected>Skin.HasSetting(ShowSystemInfoWidget)</selected>
+					</control>
+					
 				</control>
 		</control>
 		

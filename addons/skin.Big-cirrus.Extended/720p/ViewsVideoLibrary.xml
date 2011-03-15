@@ -399,7 +399,7 @@
 						<texture fallback="notvshowlogo.png">$INFO[ListItem.path]logo.png</texture> 
 						<fadetime>100</fadetime> 
 						<aspectratio scalediffuse="false">keep</aspectratio> 
-						<visible>!substring(listitem.path,$LOCALIZE[20373])</visible> 
+						<visible>substring(listitem.path,"Season")</visible> 
 					</control>
 					<control type="largeimage" id="7917"> 
 						<posx>345r</posx> 
@@ -409,7 +409,7 @@
 						<texture fallback="notvshowlogo.png">$INFO[ListItem.path]../logo.png</texture> 
 						<fadetime>100</fadetime> 
 						<aspectratio scalediffuse="false">keep</aspectratio> 
-						<visible>substring(listitem.path,$LOCALIZE[20373])</visible> 
+						<visible>!substring(listitem.path,"Season")</visible> 
 					</control>
 				</control>
 				

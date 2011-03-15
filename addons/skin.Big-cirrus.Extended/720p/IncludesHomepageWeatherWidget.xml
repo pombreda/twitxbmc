@@ -8,7 +8,7 @@
 
 			<control type="group">
 				<posx>215r</posx>
-				<posy>235</posy>
+				<posy>0</posy>
 				<width>225</width>
 				<height>301</height>
 				<visible>Container(9000).Hasfocus(6)</visible> 
