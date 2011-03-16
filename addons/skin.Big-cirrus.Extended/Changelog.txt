@@ -1,3 +1,8 @@
+[B]1.0.6[/B]
+add Musik Widget
+fix animation Weather
+mod RightListView for TV
+
 [B]1.0.5[/B]
 - remove support script.genre-editor
 + autohide button for not installed script

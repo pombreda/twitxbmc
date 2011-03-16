@@ -42,7 +42,7 @@
 				<orientation>horizontal</orientation>
 				<focusposition>2</focusposition>
 				<scrolltime>200</scrolltime>
-				<onup>9000</onup>
+				<onup>8000</onup>
 				<ondown>9000</ondown>
 				<itemgap>0</itemgap>
 				<visible>Container(9000).HasFocus(2)</visible>
@@ -114,7 +114,7 @@
 				<orientation>horizontal</orientation>
 				<focusposition>2</focusposition>
 				<scrolltime>200</scrolltime>
-				<onup>8002</onup>
+				<onup>8004</onup>
 				<ondown>9000</ondown>
 				<itemgap>0</itemgap>
 				<visible>Container(9000).HasFocus(3)</visible>
@@ -365,7 +365,7 @@
 				<orientation>horizontal</orientation>
 				<focusposition>2</focusposition>
 				<scrolltime>200</scrolltime>
-				<onup>8000</onup>
+				<onup>8002</onup>
 				<ondown>9000</ondown>
 				<itemgap>0</itemgap>
 				<visible>Container(9000).HasFocus(10)</visible>
@@ -445,7 +445,7 @@
 				<orientation>horizontal</orientation>
 				<focusposition>2</focusposition>
 				<scrolltime>200</scrolltime>
-				<onup>8001</onup>
+				<onup>8003</onup>
 				<ondown>9000</ondown>
 				<itemgap>0</itemgap>
 				<visible>Container(9000).HasFocus(11)</visible>

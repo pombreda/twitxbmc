@@ -24,10 +24,10 @@
 					</control>
 					<control type="label">
 						<description>Title label</description>
-						<posx>230r</posx>
+						<posx>30r</posx>
 						<posy>15</posy>
 						<height>20</height>
-						<width>230</width>
+						<width>450</width>
 						<label>31323</label>
 						<align>right</align>
 						<aligny>center</aligny>
@@ -182,10 +182,10 @@
 					</control>
 					<control type="label">
 						<description>Title label</description>
-						<posx>230r</posx>
+						<posx>30r</posx>
 						<posy>15</posy>
 						<height>20</height>
-						<width>290</width>
+						<width>450</width>
 						<label>31324</label>
 						<align>right</align>
 						<aligny>center</aligny>
@@ -352,10 +352,10 @@
 					</control>
 					<control type="label">
 						<description>Title label</description>
-						<posx>230r</posx>
+						<posx>30r</posx>
 						<posy>15</posy>
 						<height>20</height>
-						<width>230</width>
+						<width>450</width>
 						<label>31323</label>
 						<align>right</align>
 						<aligny>center</aligny>
@@ -514,10 +514,10 @@
 					</control>
 					<control type="label">
 						<description>Title label</description>
-						<posx>230r</posx>
+						<posx>30r</posx>
 						<posy>15</posy>
 						<height>20</height>
-						<width>290</width>
+						<width>450</width>
 						<label>31324</label>
 						<align>right</align>
 						<aligny>center</aligny>
@@ -536,7 +536,7 @@
 							<height>170</height>
 							<aspectratio>stretch</aspectratio>
 							<texture background="true" diffuse="maskthumbnail.png">$INFO[Window.Property(LatestEpisode.1.Thumb)]</texture>
-							<visible>!Control.HasFocus(8001)</visible>
+							<visible>!Control.HasFocus(8003)</visible>
 							<include>VisibleFadeEffect</include>
 						</control>
 						<control type="image">
@@ -580,7 +580,7 @@
 							<selectedcolor>selected</selectedcolor>
 							<align>center</align>
 							<aligny>center</aligny>
-							<label>$INFO[Container(8001).ListItem.Label]</label>
+							<label>$INFO[Container(8003).ListItem.Label]</label>
 							<scroll>true</scroll>
 						</control>
 					</control>
@@ -667,6 +667,167 @@
 						</content>
 					</control>
 				</control>
+				
+			<control type="group"> <!-- Music Menu -->
+					<posx>30r</posx>
+					<posy>0</posy>
+					<visible>Library.HasContent(Music) + Container(9000).Hasfocus(3)</visible>
+					<animation effect="slide" start="600,0" end="0,0" time="300" delay="300">Visible</animation>
+					<animation effect="slide" start="0,0" end="0,-240" time="300">Hidden</animation>
+					<control type="image">
+						<description>background</description>
+						<posx>920r</posx>
+						<aspectratio alignx="left">stretch</aspectratio>
+						<posy>0</posy>
+						<width>920</width>
+						<height>240</height>
+						<texture border="10" flipy="true" diffuse="recentlyaddeddiffuse.png">rightlistbackground.png</texture>
+					</control>
+					<control type="label">
+						<description>Title label</description>
+						<posx>30r</posx>
+						<posy>15</posy>
+						<height>20</height>
+						<width>450</width>
+						<label>New Music</label>
+						<align>right</align>
+						<aligny>center</aligny>
+						<font>cirrus_24_Bold</font>
+						<textcolor>orange</textcolor>
+						<shadowcolor>black</shadowcolor>
+					</control>
+					<control type="group">
+						<posy>10</posy>
+						<posx>-120</posx>
+						<control type="image">
+							<description>Main Icon</description>
+							<posx>-40</posx>
+							<posy>40</posy>
+							<width>170</width>
+							<height>170</height>
+							<aspectratio>stretch</aspectratio>
+							<texture background="true" diffuse="maskthumbnail.png">$INFO[Window.Property(RandomSong.1.Thumb)]</texture>
+							<visible>!Control.HasFocus(8004)</visible>
+							<include>VisibleFadeEffect</include>
+						</control>
+						<control type="image">
+							<description>Main Icon</description>
+							<posx>-40</posx>
+							<posy>40</posy>
+							<width>170</width>
+							<height>170</height>
+							<aspectratio>stretch</aspectratio>
+							<fadetime>200</fadetime>
+							<texture background="true" diffuse="maskthumbnail.png">$INFO[Container(8004).ListItem.Icon]</texture>
+							<visible>Control.HasFocus(8004)</visible>
+							<include>VisibleFadeEffect</include>
+						</control>
+						<control type="image">
+							<posx>-40</posx>
+							<posy>40</posy>
+							<width>170</width>
+							<height>170</height>
+							<aspectratio aligny="top">stretch</aspectratio>
+							<fadetime>IconCrossfadeTime</fadetime>
+							<texture background="true" diffuse="maskthumbnail.png">GlassOverlay2.png</texture>
+						</control>
+					</control>
+					<control type="list" id="8004">
+					    <posx>930r</posx>
+						<posy>58</posy>
+						<width>800</width>
+						<height>236</height>
+						
+						<onleft>8000</onleft>
+						<onright>9000</onright>
+						<onup>8004</onup>
+						<ondown>8004</ondown>
+						<viewtype label="535">list</viewtype>
+						<pagecontrol>-</pagecontrol>
+						<scrolltime>0</scrolltime>
+						<itemlayout height="40" width="800">
+							<control type="label">
+								<posx>70r</posx>
+								<posy>0</posy>
+								<width>830</width>
+								<height>40</height>
+								<font>cirrus_24</font>
+								<textcolor>white</textcolor>
+								<shadowcolor>black</shadowcolor>
+								<selectedcolor>selected</selectedcolor>
+								<align>right</align>
+								<aligny>center</aligny>
+								<label>$INFO[ListItem.Label2] - $INFO[ListItem.label]</label>
+							</control>
+						</itemlayout>
+						<focusedlayout height="40" width="800">
+							<control type="label">
+								<posx>70r</posx>
+								<posy>0</posy>
+								<width>840</width>
+								<height>40</height>
+								<font>cirrus_24</font>
+								<textcolor>white</textcolor>
+								<shadowcolor>black</shadowcolor>
+								<selectedcolor>selected</selectedcolor>
+								<align>right</align>
+								<aligny>center</aligny>
+								<label>$INFO[ListItem.Label2] - $INFO[ListItem.label]</label>
+							</control>
+							<control type="image">
+								<posx>280</posx>
+								<posy>0</posy>
+								<width>450</width>
+								<height>40</height>
+								<texture border="0,2,0,2">menuitemFO.png</texture>
+								<visible>Control.HasFocus(8004)</visible>
+								<include>VisibleFadeEffect</include>
+							</control>
+						</focusedlayout>
+						<content>
+						  <item id="1">
+							<icon>$INFO[Window.Property(RandomSong.1.Thumb)]</icon>
+							<label>$INFO[Window.Property(RandomSong.1.Title)]</label>
+							<label2>$INFO[Window.Property(RandomSong.1.Artist)]</label2>
+							<property name="Rating">$INFO[Window.Property(RandomSong.1.Rating)]</property>
+							<property name="Album">$INFO[Window.Property(RandomSong.1.Album)]</property>
+							<property name="Fanart">$INFO[Window.Property(RandomSong.1.Fanart)]</property>
+							<property name="Genre">$INFO[Window.Property(RandomSong.1.Genre)]</property>
+							<onclick>$INFO[Window.Property(RandomSong.1.Path),PlayMedia(,)]</onclick>
+						  </item>
+						  <item id="2">
+							<icon>$INFO[Window.Property(RandomSong.2.Thumb)]</icon>
+							<label>$INFO[Window.Property(RandomSong.2.Title)]</label>
+							<label2>$INFO[Window.Property(RandomSong.2.Artist)]</label2>
+							<property name="Rating">$INFO[Window.Property(RandomSong.2.Rating)]</property>
+							<property name="Album">$INFO[Window.Property(RandomSong.2.Album)]</property>
+							<property name="Fanart">$INFO[Window.Property(RandomSong.2.Fanart)]</property>
+							<property name="Genre">$INFO[Window.Property(RandomSong.2.Genre)]</property>
+							<onclick>$INFO[Window.Property(RandomSong.2.Path),PlayMedia(,)]</onclick>
+						  </item>
+						  <item id="3">
+							<icon>$INFO[Window.Property(RandomSong.3.Thumb)]</icon>
+							<label>$INFO[Window.Property(RandomSong.3.Title)]</label>
+							<label2>$INFO[Window.Property(RandomSong.3.Artist)]</label2>
+							<property name="Rating">$INFO[Window.Property(RandomSong.3.Rating)]</property>
+							<property name="Album">$INFO[Window.Property(RandomSong.3.Album)]</property>
+							<property name="Fanart">$INFO[Window.Property(RandomSong.3.Fanart)]</property>
+							<property name="Genre">$INFO[Window.Property(RandomSong.3.Genre)]</property>
+							<onclick>$INFO[Window.Property(RandomSong.3.Path),PlayMedia(,)]</onclick>
+						  </item>
+						  <item id="4">
+							<icon>$INFO[Window.Property(RandomSong.4.Thumb)]</icon>
+							<label>$INFO[Window.Property(RandomSong.4.Title)]</label>
+							<label2>$INFO[Window.Property(RandomSong.4.Artist)]</label2>
+							<property name="Rating">$INFO[Window.Property(RandomSong.4.Rating)]</property>
+							<property name="Album">$INFO[Window.Property(RandomSong.4.Album)]</property>
+							<property name="Fanart">$INFO[Window.Property(RandomSong.4.Fanart)]</property>
+							<property name="Genre">$INFO[Window.Property(RandomSong.4.Genre)]</property>
+							<onclick>$INFO[Window.Property(RandomSong.4.Path),PlayMedia(,)]</onclick>
+						  </item>
+						</content>
+					</control>
+			</control>
 		</control>
 	</include>
 </includes>

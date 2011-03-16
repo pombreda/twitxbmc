@@ -90,7 +90,8 @@
 					<height>240</height>
 					<align>center</align>
 					<onleft>9000</onleft>
-					<onright>9001</onright>
+					<!--onright>9001</onright-->
+					<onright>8004</onright>
 					<onup>9011</onup>
 					<ondown>9011</ondown>
 					<itemgap>0</itemgap>

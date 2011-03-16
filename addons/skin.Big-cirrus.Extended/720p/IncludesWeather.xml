@@ -299,7 +299,7 @@
             <textcolor>white</textcolor>
             <shadowcolor>black</shadowcolor>
           </control>
-          <control type="image">
+		  <control type="image">
             <description>day icon</description>
             <posx>360</posx>
             <posy>15</posy>
@@ -307,7 +307,21 @@
             <width>80</width>
             <info>Window.Property(Day0.OutlookIcon)</info>
             <aspectratio align="right">keep</aspectratio>
+		    <visible>!Skin.HasSetting(EnableAnimationWeather)</visible>
           </control>
+		  <control type="multiimage">
+			<description>day icon</description>
+            <posx>360</posx>
+            <posy>15</posy>
+            <height>80</height>
+            <width>80</width>
+			<imagepath>special://skin/images/weather/$INFO[Window.Property(Day0.FanartCode)]</imagepath>
+			<timeperimage>100</timeperimage>
+			<randomize>false</randomize>
+			<aspectratio>keep</aspectratio>
+			<fadetime>0</fadetime>
+			<visible>Skin.HasSetting(EnableAnimationWeather)</visible>
+		  </control>
           <control type="label">
             <description>high label</description>
             <posx>40</posx>
@@ -406,7 +420,21 @@
             <width>80</width>
             <info>Window.Property(Day1.OutlookIcon)</info>
             <aspectratio align="right">keep</aspectratio>
+		    <visible>!Skin.HasSetting(EnableAnimationWeather)</visible>
           </control>
+		  <control type="multiimage">
+			<description>day icon</description>
+            <posx>360</posx>
+            <posy>15</posy>
+            <height>80</height>
+            <width>80</width>
+			<imagepath>special://skin/images/weather/$INFO[Window.Property(Day1.FanartCode)]</imagepath>
+			<timeperimage>100</timeperimage>
+			<randomize>false</randomize>
+			<aspectratio>keep</aspectratio>
+			<fadetime>0</fadetime>
+			<visible>Skin.HasSetting(EnableAnimationWeather)</visible>
+		  </control>
           <control type="label">
             <description>high label</description>
             <posx>40</posx>
@@ -505,7 +533,22 @@
             <width>80</width>
             <info>Window.Property(Day2.OutlookIcon)</info>
             <aspectratio align="right">keep</aspectratio>
+		    <visible>!Skin.HasSetting(EnableAnimationWeather)</visible>
           </control>
+		  <control type="multiimage">
+			<description>day icon</description>
+            <posx>360</posx>
+            <posy>15</posy>
+            <height>80</height>
+            <width>80</width>
+			<imagepath>special://skin/images/weather/$INFO[Window.Property(Day2.FanartCode)]</imagepath>
+			<timeperimage>100</timeperimage>
+			<randomize>false</randomize>
+			<aspectratio>keep</aspectratio>
+			<fadetime>0</fadetime>
+			<visible>Skin.HasSetting(EnableAnimationWeather)</visible>
+		  </control>
+          
           <control type="label">
             <description>high label</description>
             <posx>40</posx>
@@ -596,7 +639,7 @@
             <textcolor>white</textcolor>
             <shadowcolor>black</shadowcolor>
           </control>
-          <control type="image">
+         <control type="image">
             <description>day icon</description>
             <posx>360</posx>
             <posy>15</posy>
@@ -604,7 +647,22 @@
             <width>80</width>
             <info>Window.Property(Day3.OutlookIcon)</info>
             <aspectratio align="right">keep</aspectratio>
+		    <visible>!Skin.HasSetting(EnableAnimationWeather)</visible>
           </control>
+		  <control type="multiimage">
+			<description>day icon</description>
+            <posx>360</posx>
+            <posy>15</posy>
+            <height>80</height>
+            <width>80</width>
+			<imagepath>special://skin/images/weather/$INFO[Window.Property(Day3.FanartCode)]</imagepath>
+			<timeperimage>100</timeperimage>
+			<randomize>false</randomize>
+			<aspectratio>keep</aspectratio>
+			<fadetime>0</fadetime>
+			<visible>Skin.HasSetting(EnableAnimationWeather)</visible>
+		  </control>
+          
           <control type="label">
             <description>high label</description>
             <posx>40</posx>

@@ -2876,6 +2876,63 @@
 						<selected>Skin.HasSetting(ShowSystemInfoWidget)</selected>
 					</control>
 					
+					<control type="label" id="1100">
+						<width>750</width>
+						<height>45</height>
+						<font>cirrus_20</font>
+						<label>TV Rightlist Mods</label>
+						<textcolor>orange</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					<control type="radiobutton" id="1101">
+					<description>Enable Banner</description>
+						<width>750</width>
+						<height>40</height>
+						<font>cirrus_20</font>
+						<label>Enable Banner in TV Rightlist</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus flipx="true">listwhitegradient.png</texturefocus>
+						<texturenofocus>menuitemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(banner)</onclick>
+						<onclick>Skin.Reset(poster)</onclick> 
+						<onclick>Skin.Reset(widethumb)</onclick> 
+						<selected>Skin.HasSetting(banner)</selected>
+					</control>
+					<control type="radiobutton" id="1102">
+					<description>Enable Poster</description>
+						<width>750</width>
+						<height>40</height>
+						<font>cirrus_20</font>
+						<label>Enable Poster in TV Rightlist</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus flipx="true">listwhitegradient.png</texturefocus>
+						<texturenofocus>menuitemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(poster)</onclick>
+						<onclick>Skin.Reset(banner)</onclick> 
+						<onclick>Skin.Reset(widethumb)</onclick> 
+						<selected>Skin.HasSetting(poster)</selected>
+					</control>
+					<control type="radiobutton" id="1103">
+					<description>Enable Widethumb</description>
+						<width>750</width>
+						<height>40</height>
+						<font>cirrus_20</font>
+						<label>Enable Widethumbs in TV Rightlist</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus flipx="true">listwhitegradient.png</texturefocus>
+						<texturenofocus>menuitemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(widethumb)</onclick>
+						<onclick>Skin.Reset(banner)</onclick> 
+						<onclick>Skin.Reset(poster)</onclick> 
+						<selected>Skin.HasSetting(widethumb)</selected>
+					</control>
+					
+					
 				</control>
 		</control>
 		
