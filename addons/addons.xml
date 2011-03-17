@@ -122,4 +122,21 @@
 		<description lang="ru">Big-Cirrus.Extended - мод скина Big-Cirrus.</description>
 	</extension>
 </addon>
+
+<addon id="script.ambilight" name="Ambilight"
+       version="1.0.0" date="17.03.2011"
+       provider-name="Eraser">
+  <requires>
+    <import addon="xbmc.python" version="1.0"/>
+  </requires>
+  <extension point="xbmc.python.script"
+             library="default.py">
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Ambilight manager</summary>
+    <description lang="en"></description>
+    <license>GPL</license>
+    <platform>all</platform>
+  </extension>
+</addon>
 </addons>

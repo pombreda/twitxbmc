@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>
+  <!-- category settings -->
+  <string id="32050">General</string>
+  <string id="32051">Path to "status"</string>
+  
+  <!-- main menu -->
+  <string id="32060">Ambilight</string>
+  <string id="32061">BackLight</string>
+  <string id="32062">MoodLamp</string>
+  <string id="32063">Off</string>
+  <string id="32064">Set mode ambilight</string>
+  
+
+  
+</strings>

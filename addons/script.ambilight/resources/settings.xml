@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+  <!-- General -->
+  <category label="32050">
+    <setting id="status_path" type="file" label="32051" default="" />
+  </category>
+
+  
+</settings>

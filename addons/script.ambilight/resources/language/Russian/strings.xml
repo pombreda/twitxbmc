@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>
+  <!-- category settings -->
+  <string id="32050">Основные</string>
+  <string id="32051">Путь к файлу "status"</string>
+  
+  <!-- main menu -->
+  <string id="32060">Эмбилайт</string>
+  <string id="32061">Подсветка</string>
+  <string id="32062">Лампа настроения</string>
+  <string id="32063">Выключить</string>
+  <string id="32064">Выберите режим</string>
+  
+
+  
+</strings>
