@@ -13,7 +13,7 @@
       <fadetime>1000</fadetime>
     </control>
     <include>CommonMediaPlayingBackground</include>
-    <include condition="Skin.HasSetting(homepageHideRecentlyAdded)">HomeRecentlyAddedInfo</include>
+    <include>HomeRecentlyAddedInfo</include>
 	<include condition="Skin.HasSetting(ShowWeatherWidget)">HomepageWeatherWidget</include> 
 	<include condition="Skin.HasSetting(ShowSystemInfoWidget)">HomepageSystemInfoWidget</include> 
 
@@ -28,27 +28,16 @@
 				<height>1</height>
 				<label>-</label>
 				<font>-</font>
-				<onfocus>XBMC.RunScript(script.recentlyadded,limit=4)</onfocus>
+				<onfocus>XBMC.RunScript(script.recentlyadded,limit=4&totals=True&albums=True&unplayed=True)</onfocus>
 				<!-- <onfocus>XBMC.RunScript(special://skin/scripts/RecentlyAdded.py,limit=4)</onfocus> -->
+				<!--onfocus>XBMC.RunScript(special://skin/scripts/RecentlyAdded.py,limit=8&totals=True&albums=True&unplayed=True)</onfocus--> 
 				<onfocus>XBMC.RunScript(special://skin/scripts/RandomItems.py,limit=8&unplayed=True)</onfocus> 
 				<onfocus>SetFocus(9000)</onfocus>
 				<texturenofocus>-</texturenofocus>
 				<texturefocus>-</texturefocus>
-				<visible>Skin.HasSetting(homepageHideRecentlyAdded)</visible>
+				
 			</control>
-				<control type="button" id="8999">
-				<description>Don't run Recently added</description>
-				<posx>-20</posx>
-				<posy>-20</posy>
-				<width>1</width>
-				<height>1</height>
-				<label>-</label>
-				<font>-</font>
-				<onfocus>SetFocus(9000)</onfocus>
-				<texturenofocus>-</texturenofocus>
-				<texturefocus>-</texturefocus>
-				<visible>!Skin.HasSetting(homepageHideRecentlyAdded)</visible>
-			</control>
+				
 	  <control type="label">
         <description>time label</description>
         <posx>10</posx>

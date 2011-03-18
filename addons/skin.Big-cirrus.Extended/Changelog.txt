@@ -1,3 +1,7 @@
+[B]1.0.7[/B]
+add Random View Item (Video,Movie,TvShows,Music)
+add show Statistics
+
 [B]1.0.6[/B]
 add Musik Widget
 fix animation Weather
@@ -27,3 +31,4 @@ mod RightListView for TV
 [B]1.0.1[/B]
 +support weather fanart
 +support Weather+
+

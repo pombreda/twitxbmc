@@ -307,20 +307,34 @@
 		  <animation effect="slide" start="0,0" end="60,0" delay="0" time="300" condition="Window.IsVisible(MuteBug)">conditional</animation>
 		  <animation effect="slide" start="0,0" end="210,0" delay="0" time="300" condition="Window.Next(Home) | Window.IsVisible(FullscreenVideo) | Window.IsVisible(Visualisation)">WindowClose</animation>
 		  <animation effect="slide" start="210,0" end="0,0" delay="0" time="300" condition="Window.Previous(Home) | Window.IsVisible(FullscreenVideo) | Window.IsVisible(Visualisation)">WindowOpen</animation>
+			<control type="largeimage">
+			  <animation effect="slide" start="400,0" end="0,0" time="300">WindowOpen</animation> 
+			  <animation effect="slide" start="0,0" end="400,0" time="300">WindowClose</animation> 
+			  <description>TV Show Image</description> 
+			  <posx>400r</posx> 
+			  <posy>-128</posy> 
+			  <width>356</width> 
+			  <height>200</height> 
+			  <texture fallback="blank.png">$INFO[Player.FolderPath]../clearart.png</texture> 
+			  <texture fallback="blank.png">$INFO[Player.FolderPath]clearart.png</texture> 
+			  <aspectratio>keep</aspectratio> 
+			  <visible>Skin.HasSetting(clearart) + VideoPlayer.Content(episodes)</visible> 
+			</control>
+			<control type="label">
+				<description>time label</description>
+				<posx>20</posx>
+				<posy>20</posy>
+				<width>400</width>
+				<height>28</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>cirrus_40</font>
+				<textcolor>white</textcolor>
+				<label>$INFO[System.Time]</label>
+				<shadowcolor>black</shadowcolor>
+			</control>
+		
 
-		 <control type="label">
-			<description>time label</description>
-			<posx>20</posx>
-			<posy>20</posy>
-			<width>400</width>
-			<height>28</height>
-			<align>left</align>
-			<aligny>center</aligny>
-			<font>cirrus_40</font>
-			<textcolor>grey3</textcolor>
-			<label>$INFO[System.Time]</label>
-			<shadowcolor>black</shadowcolor>
-		</control>
     </control>
 	</controls>
 </window>

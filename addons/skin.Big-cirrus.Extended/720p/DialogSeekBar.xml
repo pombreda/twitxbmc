@@ -304,7 +304,7 @@
 					<description>Studiolabel</description>
 					<posx>180</posx>
 					<posy>38</posy>
-					<width>300</width>
+					<width>400</width>
 					<height>20</height>
 					<label>$INFO[VideoPlayer.Studio]</label>
 					<align>right</align>
