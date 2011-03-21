@@ -278,28 +278,126 @@
 						<include>VisibleFadeEffect</include>
 						<posx>0</posx>
 						<posy>20</posy>
+						<control type="label"> <!-- TVLOGO -->
+							<description>logo label</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>400</width>
+							<height>20</height>
+							<font>cirrus_20</font>
+							<label>Logo</label>
+							<align>center</align>
+							<aligny>center</aligny>
+							<textcolor>orange</textcolor>
+							<shadowcolor>black</shadowcolor>
+						</control>
 						<control type="largeimage"> <!-- LOGO -->
-							<width>380</width>
+							<posy>0</posy>
+							<width>400</width>
 							<height>270</height>
 							<aspectratio>keep</aspectratio>
 							<!-- <fadetime>IconCrossfadeTime</fadetime> -->
 							<texture fallback="notvshowlogo.png">$INFO[ListItem.FilenameAndPath]logo.png</texture>
 							<bordersize>8</bordersize>
 						</control>
+						<control type="label"> <!-- Clearart -->
+							<description>logo label</description>
+							<posx>0</posx>
+							<posy>300</posy>
+							<width>400</width>
+							<height>20</height>
+							<font>cirrus_20</font>
+							<label>Clearart</label>
+							<align>center</align>
+							<aligny>center</aligny>
+							<textcolor>orange</textcolor>
+							<shadowcolor>black</shadowcolor>
+						</control>
 						<control type="largeimage"> <!-- Clearart -->
-							<posy>280</posy>
-							<width>380</width>
+							<posy>320</posy>
+							<width>400</width>
 							<height>270</height>
 							<aspectratio>keep</aspectratio>
 							<!-- <fadetime>IconCrossfadeTime</fadetime> -->
 							<texture fallback="notvshowlogo.png">$INFO[ListItem.FilenameAndPath]clearart.png</texture>
 							<bordersize>8</bordersize>
 						</control>
+						<control type="label"> <!-- poster -->
+							<description>logo label</description>
+							<posx>420</posx>
+							<posy>0</posy>
+							<width>400</width>
+							<height>20</height>
+							<font>cirrus_20</font>
+							<label>Poster</label>
+							<align>center</align>
+							<aligny>center</aligny>
+							<textcolor>orange</textcolor>
+							<shadowcolor>black</shadowcolor>
+						</control>
+						<control type="largeimage"> <!-- poster -->
+							<posx>420</posx>
+							<posy>0</posy>
+							<width>400</width>
+							<height>570</height>
+							<aspectratio>keep</aspectratio>
+							<!-- <fadetime>IconCrossfadeTime</fadetime> -->
+							<texture fallback="notvshowlogo.png">$INFO[ListItem.FilenameAndPath]poster.jpg</texture>
+							<bordersize>8</bordersize>
+						</control>
+						<control type="label"> <!-- landscape -->
+							<description>landscape label</description>
+							<posx>840</posx>
+							<posy>0</posy>
+							<width>400</width>
+							<height>20</height>
+							<font>cirrus_20</font>
+							<label>Landscape</label>
+							<align>center</align>
+							<aligny>center</aligny>
+							<textcolor>orange</textcolor>
+							<shadowcolor>black</shadowcolor>
+						</control>
+						<control type="largeimage"> <!-- landscape -->
+							<posx>840</posx>
+							<posy>30</posy>
+							<width>400</width>
+							<height>270</height>
+							<aspectratio>keep</aspectratio>
+							<!-- <fadetime>IconCrossfadeTime</fadetime> -->
+							<texture fallback="notvshowlogo.png">$INFO[ListItem.FilenameAndPath]landscape.jpg</texture>
+							<bordersize>8</bordersize>
+						</control>
+						<control type="label"> <!-- banner -->
+							<description>landscape label</description>
+							<posx>840</posx>
+							<posy>310</posy>
+							<width>400</width>
+							<height>20</height>
+							<font>cirrus_20</font>
+							<label>Banner</label>
+							<align>center</align>
+							<aligny>center</aligny>
+							<textcolor>orange</textcolor>
+							<shadowcolor>black</shadowcolor>
+						</control>
+						<control type="largeimage"> <!-- banner -->
+							<posx>840</posx>
+							<posy>340</posy>
+							<width>400</width>
+							<height>270</height>
+							<aspectratio>keep</aspectratio>
+							<!-- <fadetime>IconCrossfadeTime</fadetime> -->
+							<texture fallback="notvshowlogo.png">$INFO[ListItem.FilenameAndPath]banner.jpg</texture>
+							<bordersize>8</bordersize>
+						</control>
+						
 					</control>
 					<control type="group"> <!-- HEAD -->
 						<posx>400</posx>
 						<posy>5</posy>
 						<width>880</width>
+						<visible>!Control.HasFocus(101)</visible>
 						<control type="label"> <!-- TV TITRE -->
 							<description>tv show title label</description>
 							<posx>0</posx>
@@ -356,6 +454,7 @@
 					<control type="list" id="49">
 						<include>VisibleFadeEffect</include>
 						<visible>!Control.HasFocus(12)</visible>
+						<visible>!Control.HasFocus(101)</visible>
 						<posx>340</posx>
 						<posy>100</posy>
 						<width>710</width>
@@ -509,6 +608,7 @@
 							<texture background="true" flipy="true" diffuse="diffuse_mirror2.png">$INFO[ListItem.Icon]</texture>
 						</control>
 					</control>
+					
 					<control type="grouplist">
 						<description>Media Codec Flagging Images</description>
 						<posx>0</posx>
@@ -700,6 +800,7 @@
 				</control>
 				<control type="group"> <!-- Movie -->
 					<visible>!container.content(episodes) + !Control.HasFocus(12)</visible>
+					<visible>!Control.HasFocus(101)</visible>
 					<posx>390</posx>
 					<posy>280</posy>
 					<control type="image">
@@ -831,7 +932,7 @@
 					<ondown>50</ondown>
 					<!-- Buttons -->
 					<control type="button" id="101">
-						<visible>System.HasAddon(script.logo-downloader) + [container.content(episodes) | container.content(TVShows) | container.content(seasons)]</visible>
+						<visible>System.HasAddon(script.logo-downloader) + [container.content(TVShows) | container.content(seasons)]</visible>
 						<description>Get Logo</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<!--onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=True,clearart=True,"showname=$INFO[ListItem.TVShowTitle]")</onclick-->
@@ -901,6 +1002,7 @@
 
 				</control>
 			</control>
+			
 			<control type="group">
 				<include>VisibleFadeEffect</include>
 				<visible>Control.HasFocus(12)</visible>

@@ -328,7 +328,7 @@
 					<height>141</height>
 					<aspectratio aligny="bottom">stretch</aspectratio>
 					<fadetime>IconCrossfadeTime</fadetime>
-					<texture background="true" fallback="landscape fallback.png" diffuse="maskfanart.png">$INFO[ListItem.Path]landscape.jpg</texture>
+					<texture background="true" fallback="notvshowlogo.png" diffuse="maskfanart.png">$INFO[ListItem.Path]landscape.jpg</texture>
 					<visible>Skin.HasSetting(widethumb) + !Skin.HasSetting(banner) + !Skin.HasSetting(poster)</visible>
 				</control>
 				
@@ -385,7 +385,7 @@
 					<aspectratio>stretch</aspectratio>
 					<fadetime>200</fadetime>
 					<bordersize>5</bordersize>
-					<texture background="true" fallback="tvbanner.png" diffuse="maskbanner.png">$INFO[ListItem.Path]banner.jpg</texture>
+					<texture background="true" fallback="notvshowlogo.png" diffuse="maskbanner.png">$INFO[ListItem.Path]banner.jpg</texture>
 					<visible>Skin.HasSetting(banner) + !Skin.HasSetting(poster)</visible>
 					</control>
 					

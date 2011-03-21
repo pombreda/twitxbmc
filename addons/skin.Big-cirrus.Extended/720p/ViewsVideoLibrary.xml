@@ -965,12 +965,24 @@
 						<control type="image">
 							<posx>0</posx>
 							<posy>0</posy>
+							<visible>!Skin.HasSetting(bannerWallView)</visible> 
 							<width>575</width>
 							<height>106</height>
 							<bordersize>5</bordersize>
 							<aspectratio>stretch</aspectratio>
 							<fadetime>200</fadetime>
 							<texture background="true" diffuse="maskbanner.png">$INFO[Listitem.Icon]</texture>
+						</control>
+						<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<visible>Skin.HasSetting(bannerWallView)</visible> 
+							<width>575</width>
+							<height>106</height>
+							<bordersize>5</bordersize>
+							<aspectratio>stretch</aspectratio>
+							<fadetime>200</fadetime>
+							<texture background="true" diffuse="$INFO[Listitem.Icon]">$INFO[ListItem.Path]banner.jpg</texture>
 						</control>
 						<control type="image">
 							<posx>0</posx>
@@ -1011,12 +1023,23 @@
 						<control type="image">
 							<posx>0</posx>
 							<posy>0</posy>
+							<visible>!Skin.HasSetting(bannerWallView)</visible> 
 							<width>575</width>
 							<height>106</height>
-							<aspectratio>stretch</aspectratio>
-							<fadetime>200</fadetime>
 							<bordersize>5</bordersize>
+							<aspectratio>stretch</aspectratio>
 							<texture background="true" diffuse="maskbanner.png">$INFO[Listitem.Icon]</texture>
+							<bordertexture border="8">folder-focus.png</bordertexture>
+						</control>
+						<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<visible>Skin.HasSetting(bannerWallView)</visible> 
+							<width>575</width>
+							<height>106</height>
+							<bordersize>5</bordersize>
+							<aspectratio>stretch</aspectratio>
+							<texture background="true" diffuse="maskbanner.png">$INFO[ListItem.Path]banner.jpg</texture>
 							<bordertexture border="8">folder-focus.png</bordertexture>
 						</control>
 						<control type="image">
