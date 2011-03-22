@@ -104,7 +104,7 @@
   </extension>
 </addon>
 
-<addon id="skin.Big-cirrus.Extended" version="1.0.8" name="Big-Cirrus.Extended" provider-name="Eraser">
+<addon id="skin.Big-cirrus.Extended" version="1.0.9" name="Big-Cirrus.Extended" provider-name="Eraser">
 	<requires>
 		<import addon="xbmc.gui" version="2.11"/>
 		<import addon="script.logo-downloader" version="2.3.0"/>

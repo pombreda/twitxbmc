@@ -196,6 +196,12 @@
 					</control>
 					<control type="button" id="901453">
 						<include>ButtonHomeSubCommonValues</include>
+						<label>1036</label>
+						<onclick>ActivateWindow(Information)</onclick>
+						<visible>Skin.HasSetting(cleanHome)</visible>
+					</control>
+					<control type="button" id="901454">
+						<include>ButtonHomeSubCommonValues</include>
 						<label>446</label>
 						<onclick>XBMC.PlayDVD()</onclick>
 						<visible>Skin.HasSetting(cleanHome)</visible>

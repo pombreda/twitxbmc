@@ -159,7 +159,7 @@
 				<posy>50r</posy>
 				<control type="button" id="20">
 					<description>Power push button</description>
-					<posx>90</posx>
+					<posx>135</posx>
 					<posy>0</posy>
 					<width>43</width>
 					<height>43</height>
@@ -175,9 +175,11 @@
 					<ondown>9000</ondown>
 					<visible>!Skin.HasSetting(cleanHome)</visible>
 				</control>
+				
+
 				<control type="button" id="21">
 					<description>Favourites push button</description>
-					<posx>45</posx>
+					<posx>90</posx>
 					<posy>0</posy>
 					<width>43</width>
 					<height>43</height>
@@ -194,6 +196,24 @@
 					<visible>!Skin.HasSetting(cleanHome)</visible>
 				</control>
 				<control type="button" id="22">
+					<description>Information push button</description>
+					<posx>45</posx>
+					<posy>0</posy>
+					<width>43</width>
+					<height>43</height>
+					<label>-</label>
+					<font>-</font>
+					<aligny>-</aligny>
+					<onclick>ActivateWindow(1119)</onclick>
+					<texturefocus>info-icon.png</texturefocus>
+					<texturenofocus>info-iconNF.png</texturenofocus>
+					<onleft>23</onleft>
+					<onright>21</onright>
+					<onup>9000</onup>
+					<ondown>9000</ondown>
+					<visible>!Skin.HasSetting(cleanHome)</visible>
+				</control>
+				<control type="button" id="23">
 					<description>Play Disc Media push button</description>
 					<posx>0</posx>
 					<posy>0</posy>
@@ -206,13 +226,13 @@
 					<texturefocus>homeplaybuttonFO.png</texturefocus>
 					<texturenofocus>homeplaybuttonNF.png</texturenofocus>
 					<onleft>9000</onleft>
-					<onright>21</onright>
+					<onright>22</onright>
 					<onup>9000</onup>
 					<ondown>9000</ondown>
-					<visible>System.HasMediaDVD</visible>
 					<visible>!Skin.HasSetting(cleanHome)</visible>
+					<enable>System.HasMediaDVD</enable>
 				</control>
-				<control type="button" id="22">
+				<control type="button" id="23">
 					<description>Play Disc Media push button</description>
 					<posx>0</posx>
 					<posy>0</posy>
@@ -225,7 +245,7 @@
 					<texturefocus>homeplaybuttonFO.png</texturefocus>
 					<texturenofocus>homeplaybuttonNF.png</texturenofocus>
 					<onleft>9000</onleft>
-					<onright>21</onright>
+					<onright>22</onright>
 					<onup>9000</onup>
 					<ondown>9000</ondown>
 					<visible>!System.HasMediaDVD + !Skin.HasSetting(cleanHome)</visible>

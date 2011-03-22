@@ -285,6 +285,14 @@
 			<selected>Skin.HasSetting(slimRightList)</selected>
 			<visible>Control.IsVisible(569)</visible>
 		  </control> -->
+		  <control type="radiobutton" id="2057">
+					<description>Toggle Rightlist posters</description>
+					<include>ButtonCommonValues</include>
+					<label>Remove posters</label>
+					<onclick>Skin.ToggleSetting(posterlessRightList)</onclick>
+					<selected>Skin.HasSetting(posterlessRightList)</selected>
+					<visible>Control.IsVisible(569)</visible>
+		  </control>
 		  <control type="radiobutton" id="2052">
 			<description>Toggle Cases</description>
 			<include>ButtonCommonValues</include>

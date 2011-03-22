@@ -1,3 +1,8 @@
+[B]1.0.9[/B]
+add news (Skin News script)
+add ViewRightList: remove poster
+fix ViewRightList: use poster.jpg 
+
 [B]1.0.8[/B]
 add view poster, banner, landscape in InfoTVShows
 view banner.jpg for TV BannerWallWiew
