@@ -1,3 +1,7 @@
+[B]1.0.10[/B]
+add extras for genres(video,music), studios
+add fanart for genres, studios
+
 [B]1.0.9[/B]
 add news (Skin News script)
 add ViewRightList: remove poster

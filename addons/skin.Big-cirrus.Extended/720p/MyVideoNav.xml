@@ -12,54 +12,84 @@
 			<texturefocus>-</texturefocus>
 	</control>
 	<include>CommonVideoBackground</include>
+	
 	<control type="group">
-      <include>Window_OpenClose_Animation</include>    
-      <control type="image">
-        <posx>0</posx>
-        <posy>0</posy>
-        <width>1280</width>
-        <height>720</height>
-        <texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
-        <include>backgroundfade</include>
-        <fadetime>FanartCrossfadeTime</fadetime>
-        <visible>!Skin.HasSetting(VideoLibraryMovieFanart) | Control.IsVisible(508)</visible>
-        <visible>Container.Content(Movies)</visible>
-      </control>
-      <control type="image">
-        <posx>0</posx>
-        <posy>0</posy>
-        <width>1280</width>
-        <height>720</height>
-        <texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
-        <include>backgroundfade</include>
-        <fadetime>FanartCrossfadeTime</fadetime>
-        <visible>!Skin.HasSetting(VideoLibraryTVFanart)</visible>
-        <visible>Container.Content(TVShows) | [Container.Content(Episodes) + substring(Container.FolderPath,videodb://5/)]</visible>
-      </control>
-      <control type="image">
-        <posx>0</posx>
-        <posy>0</posy>
-        <width>1280</width>
-        <height>720</height>
-        <info>Fanart.Image</info>
-        <texture background="true">$INFO[Fanart.Image]</texture>
-        <include>backgroundfade</include>
-        <fadetime>FanartCrossfadeTime</fadetime>
-        <visible>!Skin.HasSetting(VideoLibraryTVFanart)</visible>
-        <visible>Container.Content(Seasons) | [Container.Content(Episodes) + !substring(Container.FolderPath,videodb://5/)]</visible>
-      </control>
-      <control type="image">
-        <posx>0</posx>
-        <posy>0</posy>
-        <width>1280</width>
-        <height>720</height>
-        <texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
-        <include>backgroundfade</include>
-        <fadetime>FanartCrossfadeTime</fadetime>
-        <visible>!Skin.HasSetting(VideoLibraryMusicVideoFanart)</visible>
-        <visible>Container.Content(MusicVideos) | Container.Content(Artists) | Container.Content(Albums)</visible>
-      </control>
+		<include>Window_OpenClose_Animation</include>    
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+			<include>backgroundfade</include>
+			<include>global_kenburns_fanart</include>
+			<fadetime>FanartCrossfadeTime</fadetime>
+			<visible>!Skin.HasSetting(VideoLibraryMovieFanart) | Control.IsVisible(508) | Control.IsVisible(590) | Control.IsVisible(591)| Control.IsVisible(592) | Control.IsVisible(593) | Control.IsVisible(594) | Control.IsVisible(595)</visible>
+			<visible>Container.Content(Movies) | Window.IsVisible(VideoLibrary)</visible>
+		</control>
+		<!-- ExtraFanart Mod -->
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+			<include>backgroundfade</include>
+			<fadetime>FanartCrossfadeTime</fadetime>
+			<include>global_kenburns_fanart</include>
+			<visible>!Skin.HasSetting(VideoLibraryTVFanart)</visible>
+			<visible>Container.Content(TVShows) | [Container.Content(Episodes) + substring(Container.FolderPath,videodb://5/)]</visible>
+		</control>
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<info>Fanart.Image</info>
+			<texture background="true">$INFO[Fanart.Image]</texture>
+			<include>backgroundfade</include>
+			<fadetime>FanartCrossfadeTime</fadetime>
+			<include>global_kenburns_fanart</include>
+			<visible>!Skin.HasSetting(VideoLibraryTVFanart)</visible>
+			<visible>Container.Content(Seasons) | [Container.Content(Episodes) + !substring(Container.FolderPath,videodb://5/)]</visible>
+		</control>
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+			<include>backgroundfade</include>
+			<fadetime>FanartCrossfadeTime</fadetime>
+			<include>global_kenburns_fanart</include>
+			<visible>!Skin.HasSetting(VideoLibraryMusicVideoFanart)</visible>
+			<visible>Container.Content(MusicVideos) | Container.Content(Artists) | Container.Content(Albums)</visible>
+		</control>
+		<!-- GenreFanart Mod -->
+		<control type="image">
+		    <posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<fadetime>400</fadetime>
+			<include>global_kenburns_fanart</include>
+			<texture background="true" fallback="backgrounds/movies.jpg">special://skin/extras/moviegenrefanart/$INFO[ListItem.Label].jpg</texture>
+			<visible>Container.Content(genres)</visible>
+		</control>
+		<!-- StudiosFanart Mod -->
+		<control type="image">
+		    <posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<fadetime>400</fadetime>
+			<include>global_kenburns_fanart</include>
+			<texture background="true" fallback="backgrounds/movies.jpg">special://skin/extras/moviestudiofanart/$INFO[ListItem.Label].jpg</texture>
+			<visible>Container.Content(studios)</visible>
+		</control>
     </control>
+	
+	
    <include>CommonMediaPlayingBackground</include>
     <control type="group">
       <include>Window_OpenClose_Animation</include>    

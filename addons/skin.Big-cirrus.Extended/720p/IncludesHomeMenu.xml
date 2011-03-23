@@ -35,7 +35,8 @@
 					<height>240</height>
 					<align>center</align>
 					<onleft>9000</onleft>
-					<onright>8000</onright>
+					<include condition="!Skin.HasSetting(homepageHideRandomVideoAdded)">onright8000</include>
+					<include condition="Skin.HasSetting(homepageHideRandomVideoAdded)">onright8010</include>
 					<onup>9010</onup>
 					<ondown>9010</ondown>
 					<itemgap>0</itemgap>
@@ -608,5 +609,11 @@
 			</control>
 			
 		</control>
+	</include>
+	<include name="onright8000">
+	<onright>8000</onright>
+	</include>
+	<include name="onright8010">
+	<onright>8010</onright>
 	</include>
 </includes>

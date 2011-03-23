@@ -214,6 +214,38 @@
           <aspectratio aligny="center">keep</aspectratio>
           <fadetime>IconCrossfadeTime</fadetime>
           <texture diffuse="maskposter.png">$INFO[ListItem.Icon]</texture>
+		  <visible>!Container.Content(Genres) + !Container.Content(Studios)</visible>
+        </control>
+		<!-- GenreFanart Mod -->
+        <control type="image">
+		  <posx>0</posx>
+		  <posy>40</posy>
+		  <width>360</width>
+		  <height>440</height>
+		  <aspectratio aligny="center">keep</aspectratio>
+		  <fadetime>IconCrossfadeTime</fadetime>
+		  <texture diffuse="maskposter.png" fallback="special://skin/extras/moviegenres/default.png">special://skin/extras/moviegenres/$INFO[ListItem.Label].png</texture>
+		  <visible>Container.Content(Genres) + !Window.IsVisible(MusicLibrary)</visible>
+        </control>
+		<control type="image">
+		  <posx>0</posx>
+		  <posy>40</posy>
+		  <width>360</width>
+		  <height>440</height>
+		  <aspectratio aligny="center">keep</aspectratio>
+		  <fadetime>IconCrossfadeTime</fadetime>
+		  <texture diffuse="maskposter.png" fallback="special://skin/extras/musicgenres/default.png">special://skin/extras/musicgenres/$INFO[ListItem.Label].png</texture>
+		  <visible>Container.Content(Genres) + Window.IsVisible(MusicLibrary)</visible>
+        </control>
+		<control type="image">
+		  <posx>0</posx>
+		  <posy>40</posy>
+		  <width>360</width>
+		  <height>440</height>
+		  <aspectratio aligny="center">keep</aspectratio>
+		  <fadetime>IconCrossfadeTime</fadetime>
+		  <texture diffuse="maskposter.png" fallback="special://skin/extras/moviestudios/default.png">special://skin/extras/moviestudios/$INFO[ListItem.Label].png</texture>
+		  <visible>Container.Content(Studios)</visible>
         </control>
       </control>
     </control>
