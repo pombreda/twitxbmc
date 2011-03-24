@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>
+  <string id="30000">Введите Twitter PIN код</string>
+  <string id="30001">twitXBMC Авторизация</string>
+  
+  <string id="30010">Что вы делаете?</string> 
+  <string id="30011">Статус на может быть пустым.</string> 
+  <string id="30012">Статус успешно обновлен.</string> 
+  <string id="30013">Статус не может быть длиннее чем %s символов.</string> 
+
+  <!-- Message status -->
+  <string id="30050">Закрыть</string> 
+  <string id="30051">Ответить</string> 
+  <string id="30052">Не показывать больше</string>
+
+  
+  <!-- Menu -->
+  <string id="30100">Обновить статус</string>
+  <string id="30101">Лента</string>
+  <string id="30102">Друзья</string>
+  <string id="30103">Фоловеры</string>
+  <string id="30104">Личные</string>
+  <string id="30105">Настройки</string>
+  <string id="30106">Выход</string>
+  <string id="30110">Смотрю</string>
+  <string id="30111">Слушаю</string>
+  
+  <!-- ContextMenu -->
+  <string id="30200">Меню</string>
+  <string id="30201">Лента пользователя</string>
+  <string id="30202">Друзья пользователя</string>
+  <string id="30203">Ретвит</string>
+  <string id="30204">Ответ</string>
+
+  <!-- Message OAuth-->
+  <string id="40001">twitXBMC не смог авторизоватся в Twitter.[CR][CR]But not to worry, just approve twitXBMC on the next page and everything will work just fine.[CR]After approving twitXBMC you'll be given a PIN number which you'll need to enter back in twitXBMC.[CR][CR]See you back soon :)</string>
+  <string id="40002">Введен неверный PIN-код.[CR]Запустите скрипт и попробуйте снова.</string>
+  <string id="40003">Вы сталкнулись с проблемой получения PIN-кода?[CR][CR]Зайдите на twitXBMC.googlecode.com для получения дополнительной информации.</string>
+  <string id="40004">Неизвестная ошибка при подключении.</string>
+  
+  <!-- Settings -->
+  <string id="5000">Debug</string>
+  <string id="5010">Музыка:</string> 
+  <string id="5011">Фильм:</string> 
+  <string id="5012">Сериал:</string> 
+  <string id="5013">Тег</string> 
+  <string id="5014">Завершение</string> 
+  <string id="5020">Дополнительные</string> 
+  <string id="5021">Автопостинг</string> 
+  <string id="5022">Авторизация</string> 
+
+    <string id="5025">Показывать ретвиты</string> 
+
+  <string id="5030">Основные</string> 
+  <string id="5031">Интерфейс</string> 
+  <string id="5032">Расширенные</string> 
+ 
+  
+</strings>

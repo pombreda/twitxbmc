@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>
+  <string id="30000">Enter Twitter PIN Code</string>
+  <string id="30001">twitXBMC Authentication</string>
+  
+  <string id="30010">What are you doing?</string> 
+  <string id="30011">Your status cannot be empty.</string> 
+  <string id="30012">Your status has been successfully updated.</string> 
+  <string id="30013">Your status cannot exceed %s characters.</string> 
+  <string id="30014">Reply</string> 
+
+  <!-- Message status -->
+  <string id="30050">CLOSE</string> 
+  <string id="30051">REPLY</string> 
+  <string id="30052">Don't show this screen again</string>
+  
+  <!-- Menu -->
+  <string id="30100">Update your status</string>
+  <string id="30101">FriendsTimeline</string>
+  <string id="30102">Friends</string>
+  <string id="30103">Followers</string>
+  <string id="30104">DirectMessages</string>
+  <string id="30105">Settings</string>
+  <string id="30106">Exit</string>
+  <string id="30110">Video post</string>
+  <string id="30111">Audio post</string>
+  
+  <!-- ContextMenu -->
+  <string id="30200">Menu</string>
+  <string id="30201">User Timeline</string>
+  <string id="30202">User Friends</string>
+  <string id="30203">Retweet</string>
+  <string id="30204">Reply</string>
+  
+  
+  
+
+  <!-- Message OAuth-->
+  <string id="40001">twitXBMC failed to authenticate with Twitter.[CR][CR]But not to worry, just approve twitXBMC on the next page and everything will work just fine.[CR]After approving twitXBMC you'll be given a PIN number which you'll need to enter back in twitXBMC.[CR][CR]See you back soon :)</string>
+  <string id="40002">The PIN number you entered is incorrect.[CR]please run the script again and give it another try.</string>
+  <string id="40003">Did you encounter a problem obtaining a PIN?[CR][CR]Checkout the wiki on twitXBMC.googlecode.com for more info.</string>
+  <string id="40004">An unexpected Twitter authentication issue as occured.</string>
+  <string id="300">Welcome</string>
+  
+  <!-- Settings -->
+  <string id="5000">Debug</string>
+  <string id="5010">Music Tweet:</string> 
+  <string id="5011">Movies Tweet:</string> 
+  <string id="5012">TV Shows Tweet:</string> 
+  <string id="5013">Tags</string> 
+  <string id="5014">Truncation</string> 
+  <string id="5020">Misc Settings</string> 
+  <string id="5021">Tweeting</string> 
+  <string id="5022">Sign</string> 
+
+  <string id="5025">View retweet</string> 
+
+  <string id="5030">General</string> 
+  <string id="5031">Interface</string> 
+  <string id="5032">Advanced</string> 
+
+  
+  
+</strings>
