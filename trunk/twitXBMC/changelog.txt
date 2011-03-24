@@ -1,0 +1,40 @@
+﻿twitXBMC Changelog
+** 0.0.9 **
+ADD: retweet (context menu)
+ADD: reply (context menu)
+ADD: view retweet in FriendsTimeline (settings)
+
+
+** 0.0.8 ** 
+fix: FriendsTimeline and auto loaded statuses
+ADD: view user timeline (context menu)
+ADD: view user friends (context menu)
+
+** 0.0.7 **
+NEW: twitter api with gzip compression
+ADD: Russian translation
+ADD: account information (avatar, name, location, last message)
+ADD: FriendsTimeline is automatically loaded statuses as they read
+fix: alert status too long
+
+** 0.0.6 **
+FIX: [LINUX] automatically open web page in the browser by default
+FIX: buttons without labels
+
+** 0.0.5 **
+FIX: автопостинг с кирилицей
+ADD: view datetime posting status
+
+** 0.0.4 **
+ADD: setting format string auto-twitting
+ADD: process indicator
+
+** 0.0.3 **
+FIX: Sign
+ADD: Count followers, following
+
+** 0.0.2 **
+ADD: Audio, video information posting
+
+** 0.0.1 **
+Initial Release

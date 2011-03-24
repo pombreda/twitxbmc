@@ -1,0 +1,432 @@
+﻿<window>
+  <defaultcontrol>9000</defaultcontrol>
+  <coordinates>
+    <system>1</system>
+    <posx>100</posx>
+    <posy>50</posy>
+  </coordinates>
+  <animation effect="fade" time="250">WindowOpen</animation>
+  <animation effect="fade" time="250">WindowClose</animation>
+  <controls>
+    <control type="group">
+      <posx>0</posx>
+      <posy>0</posy>
+      <control type="image">
+		<description>background</description>
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>1090</width>
+        <height>600</height>
+        <texture border="40">default-panel.png</texture>
+      </control>
+      <!-- ** Required ** Do not change <id> or <type> -->
+
+        <control type="image" >
+            <description>page header tab icon</description>
+            <posx>50</posx>
+            <posy>30</posy>
+            <width>155</width>
+            <height>36</height>
+            <texture>logo.png</texture>
+            
+        </control>
+             
+
+		<control type="image">
+			<posx>20</posx>
+			<posy>440</posy>
+			<width>235</width>
+			<height>2</height>
+			<texture>separator.png</texture>
+		</control>
+		<control type="image" id="222">
+            <posx>20</posx>
+            <posy>450</posy>
+            <width>40</width>
+            <height>40</height>
+        </control>
+		<control type="label" id="223">
+            <posx>70</posx>
+            <posy>450</posy>
+            <width>200</width>
+            <height>20</height>
+            <font>font10</font>
+            <aligny>center</aligny>
+            <textcolor>white</textcolor>
+            <align>left</align>
+        </control>
+		<control type="label" id="224">
+			<posx>70</posx>
+			<posy>470</posy>
+			<width>200</width>
+			<height>20</height>
+			<font>font10</font>
+			<aligny>center</aligny>
+			<textcolor>white</textcolor>
+			<align>left</align>
+		</control>
+		<control type="label" id="225">
+			<posx>20</posx>
+			<posy>480</posy>
+			<width>230</width>
+			<height>60</height>
+			<font>font10</font>
+			<aligny>center</aligny>
+			<textcolor>white</textcolor>
+			<align>left</align>
+			<wrapmultiline>true</wrapmultiline>
+		</control>
+      
+      
+      
+      <control type="image">
+        <posx>247</posx>
+        <posy>10</posy>
+        <width>2</width>
+        <height>550</height>
+        <texture>vseparator.png</texture>
+      </control>
+      
+	  
+	  
+	  <control type="group" id="1000"> <!-- Main Menu -->
+        <posx>12</posx>
+        <posy>140</posy>
+        
+				<control type="button" id="111">  <!-- Auto status -->
+                    <posx>0</posx>
+                    <posy>-35</posy>
+                    <height>40</height>
+                    <width>235</width>
+                    <textoffsetx>10</textoffsetx>
+                    <textwidth>220</textwidth>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                    <textcolor>FFFFFFFF</textcolor>
+                    <focusedcolor>FFFFFFFF</focusedcolor>
+                    <label>$ADDON[script.twitXBMC 30110]</label>
+                    <texturefocus border="5">button-focus.png</texturefocus>
+                    <texturenofocus>-</texturenofocus>
+                    <pulseonselect>false</pulseonselect>
+                    <onleft>2000</onleft>
+                    <onright>2000</onright>
+                    <onup>106</onup>
+                    <ondown>100</ondown>
+					<visible>true</visible>
+                </control>
+                <control type="button" id="100">  <!-- Update status -->
+                    <posx>0</posx>
+                    <posy>5</posy>
+                    <height>40</height>
+                    <width>235</width>
+                    <textoffsetx>10</textoffsetx>
+                    <textwidth>220</textwidth>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                    <textcolor>FFFFFFFF</textcolor>
+                    <focusedcolor>FFFFFFFF</focusedcolor>
+                    <label>$ADDON[script.twitXBMC 30100]</label>
+                    <texturefocus border="5">button-focus.png</texturefocus>
+                    <texturenofocus>-</texturenofocus>
+                    <pulseonselect>false</pulseonselect>
+                    <onleft>2000</onleft>
+                    <onright>2000</onright>
+                    <onup>111</onup>
+                    <ondown>101</ondown>				
+                </control>
+				<control type="button" id="101">  <!-- FriendsTimeline -->
+                    <posx>0</posx>
+                    <posy>45</posy>
+                    <height>40</height>
+                    <width>235</width>
+                    <textoffsetx>10</textoffsetx>
+                    <textwidth>220</textwidth>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                    <textcolor>FFFFFFFF</textcolor>
+                    <focusedcolor>FFFFFFFF</focusedcolor>
+                    <label>$ADDON[script.twitXBMC 30101]</label>
+                    <texturefocus border="5">button-focus.png</texturefocus>
+                    <texturenofocus>-</texturenofocus>
+                    <pulseonselect>false</pulseonselect>
+                    <onleft>2000</onleft>
+                    <onright>2000</onright>
+                    <onup>100</onup>
+                    <ondown>102</ondown>				
+                </control>
+                <control type="button" id="102">  <!-- Following -->
+                    <posx>0</posx>
+                    <posy>85</posy>
+                    <height>40</height>
+                    <width>235</width>
+                    <textoffsetx>10</textoffsetx>
+                    <textwidth>220</textwidth>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                    <textcolor>FFFFFFFF</textcolor>
+                    <focusedcolor>FFFFFFFF</focusedcolor>
+                    <label>$ADDON[script.twitXBMC 30102]</label>
+                    <texturefocus border="5">button-focus.png</texturefocus>
+                    <texturenofocus>-</texturenofocus>
+                    <pulseonselect>false</pulseonselect>
+                    <onleft>2000</onleft>
+                    <onright>2000</onright>
+                    <onup>101</onup>
+                    <ondown>103</ondown>				
+                </control>      
+				<control type="button" id="103"> <!-- Followers -->
+                    <description>Followers</description>
+                    <posx>0</posx>
+                    <posy>125</posy>
+                    <height>40</height>
+                    <width>235</width>
+                    <textoffsetx>10</textoffsetx>
+                    <textwidth>220</textwidth>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                    <textcolor>FFFFFFFF</textcolor>
+                    <focusedcolor>FFFFFFFF</focusedcolor>
+                    <label>$ADDON[script.twitXBMC 30103]</label>
+                    <texturefocus border="5">button-focus.png</texturefocus>
+                    <texturenofocus>-</texturenofocus>
+                    <pulseonselect>false</pulseonselect>
+                    <onleft>2000</onleft>
+                    <onright>2000</onright>
+                    <onup>102</onup>
+                    <ondown>104</ondown>
+                </control>
+                <control type="button" id="104"> <!-- DirectMessages -->
+                    <description>DirectMessages</description>
+                    <posx>0</posx>
+                    <posy>165</posy>
+                    <height>40</height>
+                    <width>235</width>
+                    <textoffsetx>10</textoffsetx>
+                    <textwidth>220</textwidth>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                    <textcolor>FFFFFFFF</textcolor>
+                    <focusedcolor>FFFFFFFF</focusedcolor>
+                    <label>$ADDON[script.twitXBMC 30104]</label>
+                    <texturefocus border="5">button-focus.png</texturefocus>
+                    <texturenofocus>-</texturenofocus>
+                    <pulseonselect>false</pulseonselect>
+                    <onleft>2000</onleft>
+                    <onright>2000</onright>
+                    <onup>103</onup>
+                    <ondown>105</ondown>
+                </control>
+            
+                <control type="button" id="105"> <!-- Settings -->
+                    <description>Settings</description>
+                    <posx>0</posx>
+                    <posy>205</posy>
+                    <height>40</height>
+                    <width>235</width>
+                    <textoffsetx>10</textoffsetx>
+                    <textwidth>220</textwidth>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                    <textcolor>FFFFFFFF</textcolor>
+                    <focusedcolor>FFFFFFFF</focusedcolor>
+                    <label>$ADDON[script.twitXBMC 30105]</label>
+                    <texturefocus border="5">button-focus.png</texturefocus>
+                    <texturenofocus>-</texturenofocus>
+                    <pulseonselect>false</pulseonselect>
+                    <onleft>2000</onleft>
+                    <onright>2000</onright>
+                    <onup>104</onup>
+                    <ondown>106</ondown>
+                </control>
+				<control type="button" id="106"> <!-- Exit -->
+                    <description>Exit</description>
+                    <posx>0</posx>
+                    <posy>245</posy>
+                    <height>40</height>
+                    <width>235</width>
+                    <textoffsetx>10</textoffsetx>
+                    <textwidth>220</textwidth>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                    <textcolor>FFFFFFFF</textcolor>
+                    <focusedcolor>FFFFFFFF</focusedcolor>
+                    <label>$ADDON[script.twitXBMC 30106]</label>
+                    <texturefocus border="5">button-focus.png</texturefocus>
+                    <texturenofocus>-</texturenofocus>
+                    <pulseonselect>false</pulseonselect>
+                    <onleft>2000</onleft>
+                    <onright>2000</onright>
+                    <onup>105</onup>
+                    <ondown>111</ondown>
+                </control>
+            </control>
+		
+		
+      <!-- ** Required ** Do not change <id> or <type> -->
+	  <control type="label" id="133">
+			<posx>240</posx>
+			<posy>10</posy>
+			<width>860</width>
+			<height>20</height>
+			<font>font18</font>
+			<aligny>center</aligny>
+			<textcolor>white</textcolor>
+			<align>center</align>
+	  </control>
+	  <control type="image">
+			<posx>260</posx>
+			<posy>40</posy>
+			<width>860</width>
+			<height>2</height>
+			<texture>separator.png</texture>
+	  </control>
+		
+      <control type="list" id="2000">
+        <posx>250</posx>
+        <posy>42</posy>
+        <width>840</width>
+        <height>520</height>
+        <onleft>1000</onleft>
+        <onright>1000</onright>
+        <onup>110</onup>
+        <ondown>110</ondown>
+        <viewtype label="535">list</viewtype>
+        <pagecontrol>121</pagecontrol>
+        <scrolltime>200</scrolltime>
+		
+        
+        
+        <itemlayout height="76">
+          <control type="image">
+            <posx>0</posx>
+            <posy>36</posy>
+            <width>840</width>
+            <height>2</height>
+            <texture border="10">default-list-nofocus.png</texture>
+          </control>
+          <control type="image">
+		    <description>twitter icon</description>
+            <posx>6</posx>
+            <posy>3</posy>
+            <width>70</width>
+            <height>70</height>
+            <info>Listitem.Thumb</info> 
+			<texture background="true">twitterpic.png</texture>
+          </control>
+          <control type="label">
+            <posx>86</posx>
+            <posy>0</posy>
+            <width>400</width>
+            <height>38</height>
+            <font>font18</font>
+            <aligny>center</aligny>
+            <textcolor>white</textcolor>
+            <selectedcolor>green</selectedcolor>
+            <align>left</align>
+            <info>ListItem.Label</info>
+          </control>
+          <control type="label">
+            <posx>786</posx>
+            <posy>0</posy>
+            <width>300</width>
+            <height>38</height>
+            <font>font16</font> 
+            <aligny>center</aligny> 
+            <textcolor>gray</textcolor> 
+            <selectedcolor>green</selectedcolor> 
+            <align>right</align> 
+            <info>ListItem.Property(created_at)</info> 
+          </control>
+          <control type="label">
+            <posx>86</posx>
+            <posy>38</posy>
+            <width>700</width>
+            <height>38</height>
+            <font>font18</font>
+            <aligny>center</aligny>
+            <textcolor>white</textcolor>
+            <align>left</align>
+            <info>ListItem.Label2</info>
+          </control>
+
+        </itemlayout>
+        <focusedlayout height="76">
+          <control type="image">
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>800</width>
+            <height>76</height>
+            <texture border="10">default-list-focus.png</texture>
+            <visible>Control.HasFocus(2000)</visible>
+          </control>
+          <control type="image">
+		    <description>twitter icon</description>
+            <posx>6</posx>
+            <posy>3</posy>
+            <width>70</width>
+            <height>70</height>
+            <info>Listitem.Thumb</info> 
+			<texture background="true">twitterpic.png</texture>
+          </control>
+          <control type="label">
+            <posx>86</posx>
+            <posy>0</posy>
+            <width>400</width>
+            <height>38</height>
+            <font>font18</font>
+            <aligny>center</aligny>
+            <textcolor>white</textcolor>
+            <selectedcolor>green</selectedcolor>
+            <align>left</align>
+            <info>ListItem.Label</info>
+          </control>
+          <control type="label">
+            <posx>786</posx>
+            <posy>0</posy>
+            <width>300</width>
+            <height>38</height>
+            <font>font16</font> 
+            <aligny>center</aligny> 
+            <textcolor>gray</textcolor> 
+            <selectedcolor>green</selectedcolor> 
+            <align>right</align> 
+            <info>ListItem.Property(created_at)</info> 
+          </control>
+          <control type="label">
+            <posx>86</posx>
+            <posy>38</posy>
+            <width>700</width>
+            <height>38</height>
+            <font>font18</font>
+            <aligny>center</aligny>
+            <textcolor>white</textcolor>
+            <selectedcolor>green</selectedcolor>
+            <align>left</align>
+            <info>ListItem.Label2</info>
+          </control>
+
+        </focusedlayout>
+      </control>
+      <control type="group">
+        <posx>1055</posx>
+        <posy>12</posy>
+        <control type="scrollbar" id="121">
+          <description>scroll bar indicator for lists</description>
+          <posx>0</posx>
+          <posy>0</posy>
+          <width>12</width>
+          <height>550</height>
+          <texturesliderbackground border="6">default-scroll_back.png</texturesliderbackground>
+          <texturesliderbar border="6">default-scroll_mid.png</texturesliderbar>
+          <texturesliderbarfocus border="6">default-scroll_mid.png</texturesliderbarfocus>
+          <textureslidernib>-</textureslidernib>
+          <textureslidernibfocus>-</textureslidernibfocus>
+          <orientation>vertical</orientation>
+          <showonepage>false</showonepage>
+          <visible>Control.IsVisible(2000)</visible>
+        </control>
+      </control>
+
+    </control>
+  </controls>
+</window>

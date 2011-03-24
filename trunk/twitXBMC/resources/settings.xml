@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+<category label="5030">
+  <setting type="lsep" label="5021" /> 
+  <setting id="MusicTweet" type="text" label="5010" default="Listening to %ARTISTNAME% - %SONGTITLE% (%ALBUMTITLE%)"/> 
+  <setting id="MovieTweet" type="text" label="5011" default="Watching %MOVIETITLE% (%MOVIEYEAR%)"/> 
+  <setting id="TVShowTweet" type="text" label="5012" default="Watching %SHOWNAME%, Season: %SEASON%, Episode: %EPISODENAME%"/> 
+  <setting id="TagsTweet" type="text" label="5013" default="on #XBMC Media Center" /> 
+  <setting id="StatusTruncation" type="text" label="5014" default="..." />
+</category>
+<category label="5031">
+  <setting id="view_retweet" type="bool" label="5025" default="false" /> 
+</category>
+<category label="5032">
+  <setting type="lsep" label="5022" /> 
+  <setting id="Secret" type="text" label="Secret(OAuth):" default=""/>
+  <setting id="Key" type="text" label="Key(OAuth):" default=""/>
+  <setting id="BaseUrl" type="text" label="Base Url:" default="https://api.twitter.com"/>
+  <setting type="lsep" label="5020" /> 
+  <setting id="debug" type="bool" label="5000" default="false" /> 
+</category>  
+  
+  
+</settings>
