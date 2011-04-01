@@ -1,4 +1,2 @@
-[NEWS][B]1.0.9[/B]
-add news (Skin News script)
-add ViewRightList: remove poster
-fix ViewRightList: use poster.jpg 
+[NEWS][B]1.0.11[/B]
+extended home weather widget
