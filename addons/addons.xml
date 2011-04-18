@@ -1,55 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
-<addon id="repository.eraser" name="XBMC Eraser's Addons" version="1.0.0" provider-name="eraser">
-	<extension point="xbmc.addon.repository" name="XBMC Eraser's Addons">
-		<info compressed="false">http://twitxbmc.googlecode.com/svn/addons/addons.xml</info>
-		<checksum>http://twitxbmc.googlecode.com/svn/addons/addons.xml.md5</checksum>
-		<datadir zip="false">http://twitxbmc.googlecode.com/svn/addons</datadir>
-	</extension>
-	<extension point="xbmc.addon.metadata">
-		<summary>XBMC Addons Eraser's</summary>
-		<description>Install Add-ons from Eraser</description>
-		<disclaimer>Download and install Add-ons from Eraser</disclaimer>
-		<platform>all</platform>
-	</extension>
-</addon>
-
-<addon id="script.twitXBMC"
-       name="twitXBMC"
-       version="0.0.9"
+<addon id="script.Screensaver.Clock"
+       name="Clock"
+       version="0.0.2"
        provider-name="Eraser">
   <requires>
     <import addon="xbmc.python" version="1.0"/>
-	<import addon="script.module.simplejson" version="2.0.9" />
   </requires>
   <extension point="xbmc.python.script" library="default.py">
    <provides>executable</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">Twitter client</summary>
-    <description lang="en">Twitter client - send status, view friends timeline</description>
+    <summary lang="en">Screensaver clock</summary>
+    <description lang="en">It's not quite screensaver, this application that shows the clock. Can be used as screensaver.</description>
     <platform>all</platform>
   </extension>
 </addon>
 
-<addon
-  id="plugin.image.oboobs"
-  version="0.0.6"
-  name="Oboobs.ru"
-  provider-name="Eraser®">
+<addon id="script.ambilight" name="Ambilight"
+       version="1.0.0" date="17.03.2011"
+       provider-name="Eraser">
   <requires>
-        <import addon="xbmc.python" version="1.0"/>
+    <import addon="xbmc.python" version="1.0"/>
   </requires>
-    <extension point="xbmc.python.pluginsource" library="addon.py">
-        <provides>image</provides>
-    </extension>
+  <extension point="xbmc.python.script"
+             library="default.py">
+  </extension>
   <extension point="xbmc.addon.metadata">
+    <summary lang="en">Ambilight manager</summary>
+    <description lang="en"></description>
+    <license>GPL</license>
     <platform>all</platform>
-    <summary lang="en">Oboobs.ru</summary>
-    <description lang="en">Pictures from Oboobs.ru</description>
-    <summary lang="ru">Oboobs.ru</summary>
-    <description lang="ru">Изображения с сайта Oboobs.ru</description>
-    </extension>
+  </extension>
 </addon>
 
 <addon id="script.XMPPnotify"
@@ -70,19 +52,20 @@
   </extension>
 </addon>
 
-<addon id="script.Screensaver.Clock"
-       name="Clock"
-       version="0.0.2"
+<addon id="script.twitXBMC"
+       name="twitXBMC"
+       version="0.0.9"
        provider-name="Eraser">
   <requires>
     <import addon="xbmc.python" version="1.0"/>
+	<import addon="script.module.simplejson" version="2.0.9" />
   </requires>
   <extension point="xbmc.python.script" library="default.py">
    <provides>executable</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">Screensaver clock</summary>
-    <description lang="en">It's not quite screensaver, this application that shows the clock. Can be used as screensaver.</description>
+    <summary lang="en">Twitter client</summary>
+    <description lang="en">Twitter client - send status, view friends timeline</description>
     <platform>all</platform>
   </extension>
 </addon>
@@ -125,20 +108,37 @@
 	</extension>
 </addon>
 
-<addon id="script.ambilight" name="Ambilight"
-       version="1.0.0" date="17.03.2011"
-       provider-name="Eraser">
+<addon
+  id="plugin.image.oboobs"
+  version="0.0.6"
+  name="Oboobs.ru"
+  provider-name="Eraser®">
   <requires>
-    <import addon="xbmc.python" version="1.0"/>
+        <import addon="xbmc.python" version="1.0"/>
   </requires>
-  <extension point="xbmc.python.script"
-             library="default.py">
-  </extension>
+    <extension point="xbmc.python.pluginsource" library="addon.py">
+        <provides>image</provides>
+    </extension>
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">Ambilight manager</summary>
-    <description lang="en"></description>
-    <license>GPL</license>
     <platform>all</platform>
-  </extension>
+    <summary lang="en">Oboobs.ru</summary>
+    <description lang="en">Pictures from Oboobs.ru</description>
+    <summary lang="ru">Oboobs.ru</summary>
+    <description lang="ru">Изображения с сайта Oboobs.ru</description>
+    </extension>
+</addon>
+
+<addon id="repository.eraser" name="XBMC Eraser's Addons" version="1.0.0" provider-name="eraser">
+	<extension point="xbmc.addon.repository" name="XBMC Eraser's Addons">
+		<info compressed="false">http://twitxbmc.googlecode.com/svn/addons/addons.xml</info>
+		<checksum>http://twitxbmc.googlecode.com/svn/addons/addons.xml.md5</checksum>
+		<datadir zip="false">http://twitxbmc.googlecode.com/svn/addons</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>XBMC Addons Eraser's</summary>
+		<description>Install Add-ons from Eraser</description>
+		<disclaimer>Download and install Add-ons from Eraser</disclaimer>
+		<platform>all</platform>
+	</extension>
 </addon>
 </addons>
