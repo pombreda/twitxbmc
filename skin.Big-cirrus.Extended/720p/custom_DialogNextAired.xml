@@ -1,0 +1,210 @@
+<window type="dialog" id="1117">
+	<defaultcontrol always="true">999</defaultcontrol>
+	<controls>
+		<control type="group">
+			<animation effect="slide" start="900,0" end="0,0" time="400" tween="quadratic" easing="out">WindowOpen</animation>
+			<animation effect="slide" start="0,0" end="900,0" time="400" tween="quadratic" easing="out">WindowClose</animation>
+			<control type="image">
+				<posx>900r</posx>
+				<posy>0</posy>
+				<width>900</width>
+				<height>720</height>
+				<texture border="15,0,0,0" flipx="true">homesubbackground.png</texture>
+			</control>
+			<control type="button">
+				<description>Close Window button</description>
+				<posx>880r</posx>
+				<posy>0</posy>
+				<width>64</width>
+				<height>32</height>
+				<label>-</label>
+				<font>-</font>
+				<onclick>PreviousMenu</onclick>
+				<texturefocus>DialogCloseButton-focus.png</texturefocus>
+				<texturenofocus>DialogCloseButton.png</texturenofocus>
+				<onleft>450</onleft>
+				<onright>450</onright>
+				<onup>450</onup>
+				<ondown>450</ondown>
+				<visible>system.getbool(input.enablemouse)</visible>
+			</control>
+			<control type="image">
+				<posx>370r</posx>
+				<posy>30</posy>
+				<width>200</width>
+				<height>200</height>
+				<aspectratio align="center">keep</aspectratio>
+				<fadetime>IconCrossfadeTime</fadetime>
+				<texture>$INFO[ListItem.Icon]</texture>
+				<bordertexture border="8">ThumbShadow.png</bordertexture>
+				<bordersize>8</bordersize>
+			</control>
+			<control type="group">
+				<description>container des épisodes to view banner</description>
+				<animation effect="fade" time="300">Visible</animation>
+				<animation effect="fade" time="300">Hidden</animation>
+				<posy>90</posy>
+				<posx>210</posx>
+				<visible>Window.IsVisible(Home)</visible>
+				<control type="label">
+					<description>header label</description>
+					<posx>120</posx>
+					<posy>100</posy>
+					<width>1030</width>
+					<height>30</height>
+					<font>font35_title</font>
+					<label>$LOCALIZE[35140]</label>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textcolor>FFFFFFFF</textcolor>
+					<shadowcolor>FF000000</shadowcolor>
+				</control>
+				<control type="image">
+					<posx>277</posx>
+					<posy>-30</posy>
+					<width>675</width>
+					<height>124</height>
+					<aspectratio>stretch</aspectratio>
+					<bordertexture border="5">button-nofocus.png</bordertexture>
+					<bordersize>4</bordersize>
+					<texture fallback="GlassOverlay.png" >$INFO[Window(Home).Property(NextAired.Showpath),,banner.jpg]</texture> 
+					<aligny>center</aligny>
+				</control>
+			 	<control type="image">
+					<posx>250</posx>
+					<posy>-100</posy>
+					<width>180</width>
+					<height>90</height>
+					<aspectratio>stretch</aspectratio>
+					<bordertexture>-</bordertexture>
+					<bordersize>-</bordersize>
+					<texture>$INFO[Window(Home).Property(NextAired.Network),flagging/Studios/,.png]</texture>
+					<aligny>center</aligny>
+				</control>
+					<control type="list" id="49">
+						<posx>165</posx>
+						<posy>160</posy>
+						<width>855</width>
+						<height>360</height>
+						<onleft>49</onleft>
+						<onright>49</onright>
+						<onup>9000</onup>
+						<ondown>61</ondown>
+						<pagecontrol>-</pagecontrol>
+						<scrolltime>0</scrolltime>
+						<itemlayout height="30">
+							<control type="label">
+								<posx>280</posx>
+								<posy>0</posy>
+								<width>250</width>
+								<height>30</height>
+								<font>font13_title</font>
+								<align>right</align>
+								<aligny>center</aligny>
+								<textcolor>FF0084ff</textcolor>
+								<selectedcolor>FFEB9E17</selectedcolor>
+								<info>ListItem.Label</info>
+							</control>
+							<control type="label">
+								<posx>290</posx>
+								<posy>0</posy>
+								<width>665</width>
+								<height>30</height>
+								<font>font13</font>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textcolor>FFFFFFFF</textcolor>
+								<selectedcolor>FFFFFFFF</selectedcolor>
+								<info>ListItem.Label2</info>
+							</control>
+						</itemlayout>
+						<focusedlayout height="30">
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>840</width>
+								<height>30</height>
+								
+								<texture>MenuItemFO.png</texture>
+								<animation effect="fade" time="300">Visible</animation>
+								<animation effect="fade" time="300">Hidden</animation>
+							</control>
+							<control type="label">
+								<posx>280</posx>
+								<posy>0</posy>
+								<width>250</width>
+								<height>30</height>
+								<font>font13_title</font>
+								<align>right</align>
+								<aligny>center</aligny>
+								<textcolor>FF0084ff</textcolor>
+								<selectedcolor>FFEB9E17</selectedcolor>
+								<info>ListItem.Label</info>
+							</control>
+							<control type="label">
+								<posx>290</posx>
+								<posy>0</posy>
+								<width>665</width>
+								<height>30</height>
+								<font>font13</font>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textcolor>FFFFFFFF</textcolor>
+								<selectedcolor>FFFFFFFF</selectedcolor>
+								<info>ListItem.Label2</info>
+							</control>
+						</focusedlayout>
+						<content>
+							<item>
+								<label>$LOCALIZE[35141]:</label>
+								<label2>$INFO[Window(Home).Property(NextAired.Network)]</label2>
+								<onclick>-</onclick>
+								<visible>IsEmpty[Window(Home).Property(NextAired.Network),flagging/Studios/,.png] + !IsEmpty[Window(Home).Property(NextAired.Network)]</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[35142]:</label>
+								<label2>$INFO[Window(Home).Property(NextAired.ShowTitle)] ($INFO[Window(Home).Property(NextAired.Status)])</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty[Window(Home).Property(NextAired.ShowTitle)]</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[35143]:</label>
+								<label2>$INFO[Window(Home).Property(NextAired.NextNumber)] - $INFO[Window(Home).Property(NextAired.NextTitle)]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty[Window(Home).Property(NextAired.NextTitle)]</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[35144]:</label>
+								<label2>$INFO[Window(Home).Property(NextAired.Runtime),, Minutes]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty[Window(Home).Property(NextAired.NextTitle)]</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[35145]:</label>
+								<label2>$INFO[Window(Home).Property(NextAired.NextDate)]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty[Window(Home).Property(NextAired.NextDate)]</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[35139]:</label>
+								<label2>$INFO[Window(Home).Property(NextAired.Airtime)]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty[Window(Home).Property(NextAired.Airtime)]</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[35146]:</label>
+								<label2>$INFO[Window(Home).Property(NextAired.LatestNumber)] - $INFO[Window(Home).Property(NextAired.LatestTitle)]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty[Window(Home).Property(NextAired.LatestTitle)]</visible>
+							</item>
+							
+						</content>
+					</control>
+				</control>
+			</control>
+				
+		
+		
+		
+	</controls>
+</window>

@@ -1,0 +1,58 @@
+[B]1.0.13[/B]
+weekend weather
+Next Aired TvShows
+on/off button DB Editor, Cinema Experience
+
+[B]1.0.12[/B]
+My Picture Database integration
+
+[B]1.0.11[/B]
+extended home weather widget
+
+[B]1.0.10[/B]
+add extras for genres(video,music), studios
+add fanart for genres, studios
+
+[B]1.0.9[/B]
+add news (Skin News script)
+add ViewRightList: remove poster
+fix ViewRightList: use poster.jpg 
+
+[B]1.0.8[/B]
+add view poster, banner, landscape in InfoTVShows
+view banner.jpg for TV BannerWallWiew
+
+[B]1.0.7[/B]
+add Random View Item (Video,Movie,TvShows,Music)
+add show Statistics
+
+[B]1.0.6[/B]
+add Musik Widget
+fix animation Weather
+mod RightListView for TV
+
+[B]1.0.5[/B]
+- remove support script.genre-editor
++ autohide button for not installed script
+
+[B]1.0.4[/B]
++ support script.library.editor (add button)
++ support script.cinema.experience (add button)
++ add button for script.TvTunes
++ systeminfo widget
+
+[B]1.0.3[/B]
++ foto: add PictureWrapView
++ foto: add ThumbnailView
+
+[B]1.0.2[/B]
++weather widget
++add weather in VideoOSD and AudioOSD
++Plot visible if not empty
++animation weather
++add RSS line (now 2)
+
+[B]1.0.1[/B]
++support weather fanart
++support Weather+
+
