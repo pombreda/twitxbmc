@@ -1,3 +1,14 @@
+[B]1.0.13[/B]
+weekend weather
+Next Aired TvShows
+on/off button DB Editor, Cinema Experience
+
+[B]1.0.12[/B]
+My Picture Database integration
+
+[B]1.0.11[/B]
+extended home weather widget
+
 [B]1.0.10[/B]
 add extras for genres(video,music), studios
 add fanart for genres, studios
